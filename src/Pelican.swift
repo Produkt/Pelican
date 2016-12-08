@@ -28,5 +28,10 @@ public protocol Unpacker {
 }
 
 public protocol Packer {
-    func pack(files filePaths: [String], in filePath: String)
+    @discardableResult
+    func pack(files filePaths: [String], in filePath: String) -> PackOperation
+}
+
+public protocol PackOperation {
+
 }
