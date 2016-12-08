@@ -6,6 +6,7 @@ target 'PelicanSampleProject' do
   use_frameworks!
 
   pod 'Pelican', :path => '..'
+  pod 'FileMD5Hash', '2.0.0'
 
   target 'PelicanSampleProjectTests' do
     inherit! :search_paths

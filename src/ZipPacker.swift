@@ -17,14 +17,14 @@ public class ZipPacker: Packer {
     }()
 
     @discardableResult
-    public func pack(files filePaths: [String], in filePath: String) -> PackOperation {
+    public func pack(files filePaths: [String], in filePath: String) -> PackTask {
         let packOperation = ZipPackOperation(destinationPath: filePath, contentFilePaths: filePaths)
         zipOperations.addOperation(packOperation)
         return packOperation
     }
 }
 
-class ZipPackOperation: Operation, PackOperation {
+class ZipPackOperation: Operation, PackTask {
 
     private let destinationPath: String
     private let contentFilePaths: [String]

@@ -9,6 +9,7 @@
 import XCTest
 @testable import PelicanSampleProject
 import Pelican
+import FileMD5Hash
 
 class PelicanSampleProjectTests: XCTestCase {
 
@@ -36,6 +37,6 @@ class PelicanSampleProjectTests: XCTestCase {
 
         // Then
         XCTAssertTrue(FileManager.default.fileExists(atPath: archivePath), "Archive created");
-        XCTAssertEqual((try! NSData(contentsOfFile: archivePath) as Data).md5(), expectedHash)
+        XCTAssertEqual(FileHash.md5HashOfFile(atPath: archivePath), expectedHash, "Hash of file mismatch at \(archivePath)")
     }
 }

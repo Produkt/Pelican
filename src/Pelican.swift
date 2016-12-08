@@ -27,11 +27,19 @@ public protocol Unpacker {
 
 }
 
-public protocol Packer {
-    @discardableResult
-    func pack(files filePaths: [String], in filePath: String) -> PackOperation
+public protocol UnpackTask {
+    func cancel()
 }
 
-public protocol PackOperation {
+public protocol Packer {
+    @discardableResult
+    func pack(files filePaths: [String], in filePath: String) -> PackTask
+}
+
+public protocol PackTask {
+    func cancel()
+}
+
+public protocol FileInfo {
 
 }

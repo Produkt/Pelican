@@ -110,10 +110,8 @@
 			isa = PBXGroup;
 			children = (
 				95982F171DF91394001771BA /* Fixtures */,
+				95982F1F1DF988EF001771BA /* Supporting Files */,
 				95982F0C1DF91381001771BA /* PelicanSampleProjectTests.swift */,
-				95982F0E1DF91381001771BA /* Info.plist */,
-				95982F1C1DF923E1001771BA /* TestExtensions.swift */,
-				95982F1E1DF92507001771BA /* PelicanSampleProjectTestsBridgingHeader.h */,
 			);
 			path = PelicanSampleProjectTests;
 			sourceTree = "<group>";
@@ -125,6 +123,16 @@
 				95982F191DF91394001771BA /* File2.txt */,
 			);
 			path = Fixtures;
+			sourceTree = "<group>";
+		};
+		95982F1F1DF988EF001771BA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				95982F0E1DF91381001771BA /* Info.plist */,
+				95982F1C1DF923E1001771BA /* TestExtensions.swift */,
+				95982F1E1DF92507001771BA /* PelicanSampleProjectTestsBridgingHeader.h */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		C619CFC0932037B3386F6BE1 /* Frameworks */ = {
