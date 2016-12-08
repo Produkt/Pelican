@@ -1,6 +1,8 @@
 PODS:
   - FileMD5Hash (2.0.0)
-  - Pelican (0.0.1)
+  - Pelican (0.0.1):
+    - Result (~> 3.0.0)
+  - Result (3.0.0)
 
 DEPENDENCIES:
   - FileMD5Hash (= 2.0.0)
@@ -12,7 +14,8 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   FileMD5Hash: 3ed69cc19a21ff4d30ae8833fc104275ad2c7de0
-  Pelican: 7192f510fc6c6fafca05168050873ba3fe45acef
+  Pelican: cf8b672e293f24423f3b40491694c5aceb9d8e74
+  Result: 1b3e431f37cbcd3ad89c6aa9ab0ae55515fae3b6
 
 PODFILE CHECKSUM: d4b0b007b9e8d3f019a54db37a45c029e77cd6b9
 

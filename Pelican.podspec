@@ -34,8 +34,10 @@ Pod::Spec.new do |s|
 
   s.source_files = 'src/*.{swift,h}', 'src/minizip/*.{c,h}', 'src/minizip/aes/*.{c,h}'
   s.public_header_files = 'src/*.h'
-s.pod_target_xcconfig = {'SWIFT_INCLUDE_PATHS' => "#{File.dirname(__FILE__)}/src/minizip/** $(SRCROOT)/Pelican/src/minizip/**",'LIBRARY_SEARCH_PATHS' => "#{File.dirname(__FILE__)}/src/ $(SRCROOT)/Pelican/src/"}
+  s.pod_target_xcconfig = {'SWIFT_INCLUDE_PATHS' => "#{File.dirname(__FILE__)}/src/minizip/** $(SRCROOT)/Pelican/src/minizip/**",'LIBRARY_SEARCH_PATHS' => "#{File.dirname(__FILE__)}/src/ $(SRCROOT)/Pelican/src/"}
   # s.public_header_files = 'Pod/Classes/**/*.h'
   s.libraries = 'z'
   s.preserve_paths  = 'src/minizip/module.modulemap'
+
+  s.dependency 'Result', '~> 3.0.0'
 end

@@ -8,22 +8,6 @@
 
 import Foundation
 
-extension PelicanSampleProjectTests {
-
-    func cachesPath(at directory: String) -> String {
-        let path = NSTemporaryDirectory().appendingPathComponent(Bundle.main.bundleIdentifier!).appendingPathComponent(directory)
-        let fileManager = FileManager.default
-        if !fileManager.fileExists(atPath: path) {
-            try! fileManager.createDirectory(atPath: path, withIntermediateDirectories: true, attributes: nil)
-        }
-        return path
-    }
-
-    func pathForFixture(_ named: String) -> String? {
-        return Bundle(for: type(of: self)).path(forResource: named.deletingPathExtension, ofType: named.pathExtension)
-    }
-}
-
 extension String {
 
     var pathExtension: String {

@@ -13,10 +13,12 @@
 		95982EFD1DF91381001771BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95982EFB1DF91381001771BA /* Main.storyboard */; };
 		95982EFF1DF91381001771BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95982EFE1DF91381001771BA /* Assets.xcassets */; };
 		95982F021DF91381001771BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95982F001DF91381001771BA /* LaunchScreen.storyboard */; };
-		95982F0D1DF91381001771BA /* PelicanSampleProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95982F0C1DF91381001771BA /* PelicanSampleProjectTests.swift */; };
+		95982F0D1DF91381001771BA /* ZipTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95982F0C1DF91381001771BA /* ZipTests.swift */; };
 		95982F1A1DF91394001771BA /* File1.txt in Resources */ = {isa = PBXBuildFile; fileRef = 95982F181DF91394001771BA /* File1.txt */; };
 		95982F1B1DF91394001771BA /* File2.txt in Resources */ = {isa = PBXBuildFile; fileRef = 95982F191DF91394001771BA /* File2.txt */; };
 		95982F1D1DF923E1001771BA /* TestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95982F1C1DF923E1001771BA /* TestExtensions.swift */; };
+		95982F231DF9A202001771BA /* PelicanTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95982F221DF9A202001771BA /* PelicanTests.swift */; };
+		95982F251DF9A3F4001771BA /* Pelican.zip in Resources */ = {isa = PBXBuildFile; fileRef = 95982F241DF9A3F4001771BA /* Pelican.zip */; };
 		EB1F67E0F90B67EC2E1870ED /* Pods_PelicanSampleProjectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 757419E12E9A44562C1A06DA /* Pods_PelicanSampleProjectTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -42,12 +44,14 @@
 		95982F011DF91381001771BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		95982F031DF91381001771BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		95982F081DF91381001771BA /* PelicanSampleProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PelicanSampleProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		95982F0C1DF91381001771BA /* PelicanSampleProjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PelicanSampleProjectTests.swift; sourceTree = "<group>"; };
+		95982F0C1DF91381001771BA /* ZipTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZipTests.swift; sourceTree = "<group>"; };
 		95982F0E1DF91381001771BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		95982F181DF91394001771BA /* File1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = File1.txt; sourceTree = "<group>"; };
 		95982F191DF91394001771BA /* File2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = File2.txt; sourceTree = "<group>"; };
 		95982F1C1DF923E1001771BA /* TestExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestExtensions.swift; sourceTree = "<group>"; };
 		95982F1E1DF92507001771BA /* PelicanSampleProjectTestsBridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PelicanSampleProjectTestsBridgingHeader.h; sourceTree = "<group>"; };
+		95982F221DF9A202001771BA /* PelicanTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PelicanTests.swift; sourceTree = "<group>"; };
+		95982F241DF9A3F4001771BA /* Pelican.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = Pelican.zip; sourceTree = "<group>"; };
 		A1498620C7E60BE6E3E1C321 /* Pods-PelicanSampleProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PelicanSampleProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PelicanSampleProject/Pods-PelicanSampleProject.debug.xcconfig"; sourceTree = "<group>"; };
 		E8B558D9F7DAB28EFA55058D /* Pods_PelicanSampleProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PelicanSampleProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E963D49C6BA05C8C41F38583 /* Pods-PelicanSampleProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PelicanSampleProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-PelicanSampleProject/Pods-PelicanSampleProject.release.xcconfig"; sourceTree = "<group>"; };
@@ -111,7 +115,7 @@
 			children = (
 				95982F171DF91394001771BA /* Fixtures */,
 				95982F1F1DF988EF001771BA /* Supporting Files */,
-				95982F0C1DF91381001771BA /* PelicanSampleProjectTests.swift */,
+				95982F0C1DF91381001771BA /* ZipTests.swift */,
 			);
 			path = PelicanSampleProjectTests;
 			sourceTree = "<group>";
@@ -121,6 +125,7 @@
 			children = (
 				95982F181DF91394001771BA /* File1.txt */,
 				95982F191DF91394001771BA /* File2.txt */,
+				95982F241DF9A3F4001771BA /* Pelican.zip */,
 			);
 			path = Fixtures;
 			sourceTree = "<group>";
@@ -129,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				95982F0E1DF91381001771BA /* Info.plist */,
+				95982F221DF9A202001771BA /* PelicanTests.swift */,
 				95982F1C1DF923E1001771BA /* TestExtensions.swift */,
 				95982F1E1DF92507001771BA /* PelicanSampleProjectTestsBridgingHeader.h */,
 			);
@@ -256,6 +262,7 @@
 			files = (
 				95982F1A1DF91394001771BA /* File1.txt in Resources */,
 				95982F1B1DF91394001771BA /* File2.txt in Resources */,
+				95982F251DF9A3F4001771BA /* Pelican.zip in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -368,8 +375,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				95982F0D1DF91381001771BA /* PelicanSampleProjectTests.swift in Sources */,
+				95982F0D1DF91381001771BA /* ZipTests.swift in Sources */,
 				95982F1D1DF923E1001771BA /* TestExtensions.swift in Sources */,
+				95982F231DF9A202001771BA /* PelicanTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

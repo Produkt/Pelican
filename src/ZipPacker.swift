@@ -8,18 +8,20 @@
 
 import Foundation
 import minizip
+import Result
 
 public class ZipPacker: Packer {
 
-    public private(set) var zipOperations: OperationQueue = {
-        let operationQueue = OperationQueue()
-        return operationQueue
-    }()
+    public let operationQueue: OperationQueue
+
+    init(operationQueue: OperationQueue) {
+        self.operationQueue = operationQueue
+    }
 
     @discardableResult
-    public func pack(files filePaths: [String], in filePath: String) -> PackTask {
-        let packOperation = ZipPackOperation(destinationPath: filePath, contentFilePaths: filePaths)
-        zipOperations.addOperation(packOperation)
+    public func pack(files filePaths: [String], in filePath: String, completion: @escaping PackTaskCompletion) -> PackTask {
+        let packOperation = ZipPackOperation(destinationPath: filePath, contentFilePaths: filePaths, completion: completion)
+        operationQueue.addOperation(packOperation)
         return packOperation
     }
 }
@@ -30,10 +32,12 @@ class ZipPackOperation: Operation, PackTask {
     private let contentFilePaths: [String]
     private var zip: zipFile?
     private let chunkSize: Int = 16384
+    private let completion: PackTaskCompletion
 
-    init(destinationPath: String, contentFilePaths: [String]) {
+    init(destinationPath: String, contentFilePaths: [String], completion: @escaping PackTaskCompletion) {
         self.destinationPath = destinationPath
         self.contentFilePaths = contentFilePaths
+        self.completion = completion
     }
 
     override func main() {
@@ -43,6 +47,7 @@ class ZipPackOperation: Operation, PackTask {
             addFile(from: filePath)
         }
         zipClose(zip, nil)
+        completion(Result.success())
     }
 
     func addFile(from path: String) {

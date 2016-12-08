@@ -33,5 +33,10 @@
     "LIBRARY_SEARCH_PATHS": "/Users/danielgarcia/Development/iOS/Pelican/src/ $(SRCROOT)/Pelican/src/"
   },
   "libraries": "z",
-  "preserve_paths": "src/minizip/module.modulemap"
+  "preserve_paths": "src/minizip/module.modulemap",
+  "dependencies": {
+    "Result": [
+      "~> 3.0.0"
+    ]
+  }
 }
