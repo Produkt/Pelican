@@ -21,7 +21,6 @@ Pod::Spec.new do |s|
                      DESC
 
   s.homepage         = "https://github.com/Produkt/Pelican"
-  # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = { :type => 'GPL', :file => 'LICENSE' }
   s.author           = { 'Daniel Garcia' => 'fillito@gmail.com' }
   s.source           = { :git => 'https://github.com/Produkt/Pelican.git', :tag => "v#{s.version}" }
@@ -35,7 +34,6 @@ Pod::Spec.new do |s|
   s.source_files = 'src/*.{swift,h}', 'src/minizip/*.{c,h}', 'src/minizip/aes/*.{c,h}'
   s.public_header_files = 'src/*.h'
   s.pod_target_xcconfig = {'SWIFT_INCLUDE_PATHS' => "#{File.dirname(__FILE__)}/src/minizip/** $(SRCROOT)/Pelican/src/minizip/**",'LIBRARY_SEARCH_PATHS' => "#{File.dirname(__FILE__)}/src/ $(SRCROOT)/Pelican/src/"}
-  # s.public_header_files = 'Pod/Classes/**/*.h'
   s.libraries = 'z'
   s.preserve_paths  = 'src/minizip/module.modulemap'
 
