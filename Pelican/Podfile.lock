@@ -1,0 +1,16 @@
+PODS:
+  - Pelican (0.0.1)
+
+DEPENDENCIES:
+  - Pelican (from `..`)
+
+EXTERNAL SOURCES:
+  Pelican:
+    :path: ".."
+
+SPEC CHECKSUMS:
+  Pelican: 7192f510fc6c6fafca05168050873ba3fe45acef
+
+PODFILE CHECKSUM: 574bd6e88dab499ab3874dbd241a37522336dff9
+
+COCOAPODS: 1.0.1
