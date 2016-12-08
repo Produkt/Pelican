@@ -1,0 +1,574 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		61CF39A84A71B1CE7E612DA9 /* Pods_PelicanSampleProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8B558D9F7DAB28EFA55058D /* Pods_PelicanSampleProject.framework */; };
+		95982EF81DF91381001771BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95982EF71DF91381001771BA /* AppDelegate.swift */; };
+		95982EFA1DF91381001771BA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95982EF91DF91381001771BA /* ViewController.swift */; };
+		95982EFD1DF91381001771BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95982EFB1DF91381001771BA /* Main.storyboard */; };
+		95982EFF1DF91381001771BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95982EFE1DF91381001771BA /* Assets.xcassets */; };
+		95982F021DF91381001771BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95982F001DF91381001771BA /* LaunchScreen.storyboard */; };
+		95982F0D1DF91381001771BA /* PelicanSampleProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95982F0C1DF91381001771BA /* PelicanSampleProjectTests.swift */; };
+		95982F1A1DF91394001771BA /* File1.txt in Resources */ = {isa = PBXBuildFile; fileRef = 95982F181DF91394001771BA /* File1.txt */; };
+		95982F1B1DF91394001771BA /* File2.txt in Resources */ = {isa = PBXBuildFile; fileRef = 95982F191DF91394001771BA /* File2.txt */; };
+		EB1F67E0F90B67EC2E1870ED /* Pods_PelicanSampleProjectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 757419E12E9A44562C1A06DA /* Pods_PelicanSampleProjectTests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		95982F091DF91381001771BA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 95982EEC1DF91381001771BA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 95982EF31DF91381001771BA;
+			remoteInfo = PelicanSampleProject;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4113F3B8C19821A2D5876040 /* Pods-PelicanSampleProjectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PelicanSampleProjectTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PelicanSampleProjectTests/Pods-PelicanSampleProjectTests.release.xcconfig"; sourceTree = "<group>"; };
+		537957208AE9298F89F184CE /* Pods-PelicanSampleProjectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PelicanSampleProjectTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PelicanSampleProjectTests/Pods-PelicanSampleProjectTests.debug.xcconfig"; sourceTree = "<group>"; };
+		757419E12E9A44562C1A06DA /* Pods_PelicanSampleProjectTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PelicanSampleProjectTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		95982EF41DF91381001771BA /* PelicanSampleProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PelicanSampleProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		95982EF71DF91381001771BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		95982EF91DF91381001771BA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		95982EFC1DF91381001771BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		95982EFE1DF91381001771BA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		95982F011DF91381001771BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		95982F031DF91381001771BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		95982F081DF91381001771BA /* PelicanSampleProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PelicanSampleProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		95982F0C1DF91381001771BA /* PelicanSampleProjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PelicanSampleProjectTests.swift; sourceTree = "<group>"; };
+		95982F0E1DF91381001771BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		95982F181DF91394001771BA /* File1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = File1.txt; sourceTree = "<group>"; };
+		95982F191DF91394001771BA /* File2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = File2.txt; sourceTree = "<group>"; };
+		A1498620C7E60BE6E3E1C321 /* Pods-PelicanSampleProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PelicanSampleProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PelicanSampleProject/Pods-PelicanSampleProject.debug.xcconfig"; sourceTree = "<group>"; };
+		E8B558D9F7DAB28EFA55058D /* Pods_PelicanSampleProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PelicanSampleProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E963D49C6BA05C8C41F38583 /* Pods-PelicanSampleProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PelicanSampleProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-PelicanSampleProject/Pods-PelicanSampleProject.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		95982EF11DF91381001771BA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				61CF39A84A71B1CE7E612DA9 /* Pods_PelicanSampleProject.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		95982F051DF91381001771BA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB1F67E0F90B67EC2E1870ED /* Pods_PelicanSampleProjectTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		95982EEB1DF91381001771BA = {
+			isa = PBXGroup;
+			children = (
+				95982EF61DF91381001771BA /* PelicanSampleProject */,
+				95982F0B1DF91381001771BA /* PelicanSampleProjectTests */,
+				95982EF51DF91381001771BA /* Products */,
+				F000E949AB600D5CE506603E /* Pods */,
+				C619CFC0932037B3386F6BE1 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		95982EF51DF91381001771BA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				95982EF41DF91381001771BA /* PelicanSampleProject.app */,
+				95982F081DF91381001771BA /* PelicanSampleProjectTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		95982EF61DF91381001771BA /* PelicanSampleProject */ = {
+			isa = PBXGroup;
+			children = (
+				95982EF71DF91381001771BA /* AppDelegate.swift */,
+				95982EF91DF91381001771BA /* ViewController.swift */,
+				95982EFB1DF91381001771BA /* Main.storyboard */,
+				95982EFE1DF91381001771BA /* Assets.xcassets */,
+				95982F001DF91381001771BA /* LaunchScreen.storyboard */,
+				95982F031DF91381001771BA /* Info.plist */,
+			);
+			path = PelicanSampleProject;
+			sourceTree = "<group>";
+		};
+		95982F0B1DF91381001771BA /* PelicanSampleProjectTests */ = {
+			isa = PBXGroup;
+			children = (
+				95982F171DF91394001771BA /* Fixtures */,
+				95982F0C1DF91381001771BA /* PelicanSampleProjectTests.swift */,
+				95982F0E1DF91381001771BA /* Info.plist */,
+			);
+			path = PelicanSampleProjectTests;
+			sourceTree = "<group>";
+		};
+		95982F171DF91394001771BA /* Fixtures */ = {
+			isa = PBXGroup;
+			children = (
+				95982F181DF91394001771BA /* File1.txt */,
+				95982F191DF91394001771BA /* File2.txt */,
+			);
+			path = Fixtures;
+			sourceTree = "<group>";
+		};
+		C619CFC0932037B3386F6BE1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E8B558D9F7DAB28EFA55058D /* Pods_PelicanSampleProject.framework */,
+				757419E12E9A44562C1A06DA /* Pods_PelicanSampleProjectTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F000E949AB600D5CE506603E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A1498620C7E60BE6E3E1C321 /* Pods-PelicanSampleProject.debug.xcconfig */,
+				E963D49C6BA05C8C41F38583 /* Pods-PelicanSampleProject.release.xcconfig */,
+				537957208AE9298F89F184CE /* Pods-PelicanSampleProjectTests.debug.xcconfig */,
+				4113F3B8C19821A2D5876040 /* Pods-PelicanSampleProjectTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		95982EF31DF91381001771BA /* PelicanSampleProject */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 95982F111DF91381001771BA /* Build configuration list for PBXNativeTarget "PelicanSampleProject" */;
+			buildPhases = (
+				D3F13BFC68A73C700A3377C1 /* [CP] Check Pods Manifest.lock */,
+				95982EF01DF91381001771BA /* Sources */,
+				95982EF11DF91381001771BA /* Frameworks */,
+				95982EF21DF91381001771BA /* Resources */,
+				763DA23CC5FCEBC8D97FBA88 /* [CP] Embed Pods Frameworks */,
+				3B9F3BC004FE169E5EAC041D /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PelicanSampleProject;
+			productName = PelicanSampleProject;
+			productReference = 95982EF41DF91381001771BA /* PelicanSampleProject.app */;
+			productType = "com.apple.product-type.application";
+		};
+		95982F071DF91381001771BA /* PelicanSampleProjectTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 95982F141DF91381001771BA /* Build configuration list for PBXNativeTarget "PelicanSampleProjectTests" */;
+			buildPhases = (
+				8FF064F6B56BCA3EE97D6DA8 /* [CP] Check Pods Manifest.lock */,
+				95982F041DF91381001771BA /* Sources */,
+				95982F051DF91381001771BA /* Frameworks */,
+				95982F061DF91381001771BA /* Resources */,
+				94AF7CEAB177FB7E4EC57516 /* [CP] Embed Pods Frameworks */,
+				A6EB27AC4AA0E48C7F16CEB2 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				95982F0A1DF91381001771BA /* PBXTargetDependency */,
+			);
+			name = PelicanSampleProjectTests;
+			productName = PelicanSampleProjectTests;
+			productReference = 95982F081DF91381001771BA /* PelicanSampleProjectTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		95982EEC1DF91381001771BA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0810;
+				LastUpgradeCheck = 0810;
+				ORGANIZATIONNAME = "Produkt Studio";
+				TargetAttributes = {
+					95982EF31DF91381001771BA = {
+						CreatedOnToolsVersion = 8.1;
+						ProvisioningStyle = Automatic;
+					};
+					95982F071DF91381001771BA = {
+						CreatedOnToolsVersion = 8.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 95982EF31DF91381001771BA;
+					};
+				};
+			};
+			buildConfigurationList = 95982EEF1DF91381001771BA /* Build configuration list for PBXProject "PelicanSampleProject" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 95982EEB1DF91381001771BA;
+			productRefGroup = 95982EF51DF91381001771BA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				95982EF31DF91381001771BA /* PelicanSampleProject */,
+				95982F071DF91381001771BA /* PelicanSampleProjectTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		95982EF21DF91381001771BA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95982F021DF91381001771BA /* LaunchScreen.storyboard in Resources */,
+				95982EFF1DF91381001771BA /* Assets.xcassets in Resources */,
+				95982EFD1DF91381001771BA /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		95982F061DF91381001771BA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95982F1A1DF91394001771BA /* File1.txt in Resources */,
+				95982F1B1DF91394001771BA /* File2.txt in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3B9F3BC004FE169E5EAC041D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PelicanSampleProject/Pods-PelicanSampleProject-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		763DA23CC5FCEBC8D97FBA88 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PelicanSampleProject/Pods-PelicanSampleProject-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8FF064F6B56BCA3EE97D6DA8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		94AF7CEAB177FB7E4EC57516 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PelicanSampleProjectTests/Pods-PelicanSampleProjectTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A6EB27AC4AA0E48C7F16CEB2 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PelicanSampleProjectTests/Pods-PelicanSampleProjectTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D3F13BFC68A73C700A3377C1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		95982EF01DF91381001771BA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95982EFA1DF91381001771BA /* ViewController.swift in Sources */,
+				95982EF81DF91381001771BA /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		95982F041DF91381001771BA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95982F0D1DF91381001771BA /* PelicanSampleProjectTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		95982F0A1DF91381001771BA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 95982EF31DF91381001771BA /* PelicanSampleProject */;
+			targetProxy = 95982F091DF91381001771BA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		95982EFB1DF91381001771BA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				95982EFC1DF91381001771BA /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		95982F001DF91381001771BA /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				95982F011DF91381001771BA /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		95982F0F1DF91381001771BA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		95982F101DF91381001771BA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		95982F121DF91381001771BA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A1498620C7E60BE6E3E1C321 /* Pods-PelicanSampleProject.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = PelicanSampleProject/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.produkt.PelicanSampleProject;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		95982F131DF91381001771BA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E963D49C6BA05C8C41F38583 /* Pods-PelicanSampleProject.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = PelicanSampleProject/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.produkt.PelicanSampleProject;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		95982F151DF91381001771BA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 537957208AE9298F89F184CE /* Pods-PelicanSampleProjectTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = PelicanSampleProjectTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.produkt.PelicanSampleProjectTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PelicanSampleProject.app/PelicanSampleProject";
+			};
+			name = Debug;
+		};
+		95982F161DF91381001771BA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4113F3B8C19821A2D5876040 /* Pods-PelicanSampleProjectTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = PelicanSampleProjectTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.produkt.PelicanSampleProjectTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PelicanSampleProject.app/PelicanSampleProject";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		95982EEF1DF91381001771BA /* Build configuration list for PBXProject "PelicanSampleProject" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				95982F0F1DF91381001771BA /* Debug */,
+				95982F101DF91381001771BA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		95982F111DF91381001771BA /* Build configuration list for PBXNativeTarget "PelicanSampleProject" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				95982F121DF91381001771BA /* Debug */,
+				95982F131DF91381001771BA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		95982F141DF91381001771BA /* Build configuration list for PBXNativeTarget "PelicanSampleProjectTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				95982F151DF91381001771BA /* Debug */,
+				95982F161DF91381001771BA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 95982EEC1DF91381001771BA /* Project object */;
+}

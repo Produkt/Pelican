@@ -1,6 +1,0 @@
-framework module Pods_PelicanTests {
-  umbrella header "Pods-PelicanTests-umbrella.h"
-
-  export *
-  module * { export * }
-}
