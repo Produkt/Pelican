@@ -13,8 +13,9 @@ public enum PelicanType: String {
     case RAR
 }
 
-public typealias ContentInfoCompletion = (Result<[FileInfo], UnpackError>) -> Void
 public typealias PackTaskCompletion = (Result<Void, PackError>) -> Void
+public typealias ContentInfoCompletion = (Result<[FileInfo], UnpackError>) -> Void
+public typealias UnpackTaskCompletion = (Result<Void, PackError>) -> Void
 
 open class Pelican {
 
@@ -44,21 +45,6 @@ open class Pelican {
     }
 }
 
-// MARK: Unpacking
-
-public struct UnpackError: Error {
-
-}
-
-public protocol Unpacker {
-    @discardableResult
-    func contentInfo(in filePath: String, completion: @escaping ContentInfoCompletion) -> UnpackTask
-}
-
-public protocol UnpackTask {
-    func cancel()
-}
-
 // MARK: Packing
 
 public struct PackError: Error {
@@ -71,6 +57,23 @@ public protocol Packer {
 }
 
 public protocol PackTask {
+    func cancel()
+}
+
+// MARK: Unpacking
+
+public struct UnpackError: Error {
+
+}
+
+public protocol Unpacker {
+    @discardableResult
+    func contentInfo(in filePath: String, completion: @escaping ContentInfoCompletion) -> UnpackTask
+    @discardableResult
+    func unpack(fileAt filePath: String, in destinationPath: String, completion: @escaping UnpackTaskCompletion) -> UnpackTask
+}
+
+public protocol UnpackTask {
     func cancel()
 }
 

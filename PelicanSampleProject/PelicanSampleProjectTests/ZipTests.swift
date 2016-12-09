@@ -42,12 +42,12 @@ class ZipTests: PelicanTests {
     func testCanFetchFileInfo() {
         // Given
         let filePath = pathForFixture("Pelican.zip")!
-        let zipPacker = Pelican.unpacker(for: .ZIP)!
+        let zipUnpacker = Pelican.unpacker(for: .ZIP)!
 
         // When
         let contentInfoExpectation = expectation(description: "contentInfo")
-        var contentInfo:[FileInfo]! = nil
-        zipPacker.contentInfo(in: filePath) { result in
+        var contentInfo:[FileInfo]? = nil
+        zipUnpacker.contentInfo(in: filePath) { result in
             guard case let .success(contentInfoResult) = result else { return }
             contentInfo = contentInfoResult
             contentInfoExpectation.fulfill()
@@ -55,10 +55,34 @@ class ZipTests: PelicanTests {
         waitForExpectations(timeout: 1, handler: nil)
 
         // Then
-        XCTAssertEqual(contentInfo.count, 4)
-        XCTAssertEqual(contentInfo[0].fileName, "CompressedFile1.txt")
-        XCTAssertEqual(contentInfo[1].fileName, "CompressedFile2.txt")
-        XCTAssertEqual(contentInfo[2].fileName, "Pelecanus_conspicillatus_-Australia_-8.jpg")
-        XCTAssertEqual(contentInfo[3].fileName, "Pelecanus_conspicillatus_-Australia_-8_LICENCE")
+        XCTAssertEqual(contentInfo?.count, 4)
+        XCTAssertEqual(contentInfo?[0].fileName, "CompressedFile1.txt")
+        XCTAssertEqual(contentInfo?[1].fileName, "CompressedFile2.txt")
+        XCTAssertEqual(contentInfo?[2].fileName, "Pelecanus_conspicillatus_-Australia_-8.jpg")
+        XCTAssertEqual(contentInfo?[3].fileName, "Pelecanus_conspicillatus_-Australia_-8_LICENCE")
+    }
+
+    func testCanUnzipFile() {
+        // Given
+        let filePath = pathForFixture("Pelican.zip")!
+        let zipUnpacker = Pelican.unpacker(for: .ZIP)!
+        let unpackPath = cachesPath(at: "unzipped")
+
+        // When
+        let unzipExpectation = expectation(description: "unzipFile")
+        zipUnpacker.unpack(fileAt: filePath, in: unpackPath, completion: { result in
+            guard case .success() = result else { return }
+            unzipExpectation.fulfill()
+        })
+        waitForExpectations(timeout: 1, handler: nil)
+
+        // Then
+        XCTAssert(FileManager.default.fileExists(atPath: unpackPath))
+        let contents = contentsOfFolder(at: unpackPath)
+        XCTAssertEqual(contents?.count, 4)
+        XCTAssertEqual(contents?[0], "CompressedFile1.txt")
+        XCTAssertEqual(contents?[1], "CompressedFile2.txt")
+        XCTAssertEqual(contents?[2], "Pelecanus_conspicillatus_-Australia_-8.jpg")
+        XCTAssertEqual(contents?[3], "Pelecanus_conspicillatus_-Australia_-8_LICENCE")
     }
 }

@@ -23,16 +23,25 @@ public class ZipUnpacker: Unpacker {
         operationQueue.addOperation(contentInfoTask)
         return contentInfoTask
     }
+
+    public func unpack(fileAt filePath: String, in destinationPath: String, completion: @escaping UnpackTaskCompletion) -> UnpackTask {
+        let unzipTask = ZipUnpackOperation(sourcePath: filePath, destinationPath: destinationPath, completion: completion)
+        operationQueue.addOperation(unzipTask)
+        return unzipTask
+    }
 }
 
 class ZipUnpackOperation: Operation, UnpackTask {
 
-    private let destinationPath: String
     private var zip: zipFile?
-    private let chunkSize: Int = 16384
+    private let sourcePath: String
+    private let destinationPath: String
+    private let completion: UnpackTaskCompletion
 
-    init(destinationPath: String) {
+    init(sourcePath: String, destinationPath: String, completion: @escaping UnpackTaskCompletion) {
+        self.sourcePath = sourcePath
         self.destinationPath = destinationPath
+        self.completion = completion
     }
 
     override func main() {
@@ -43,10 +52,9 @@ class ZipUnpackOperation: Operation, UnpackTask {
 
 class ZipUnpackContentInfoOperation: Operation, UnpackTask {
 
-    private let sourcePath: String
     private var zip: zipFile?
+    private let sourcePath: String
     private let completion: ContentInfoCompletion
-
 
     init(sourcePath: String, completion: @escaping ContentInfoCompletion) {
         self.sourcePath = sourcePath

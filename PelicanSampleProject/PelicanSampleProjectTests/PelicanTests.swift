@@ -32,4 +32,12 @@ class PelicanTests: XCTestCase {
     func pathForFixture(_ named: String) -> String? {
         return Bundle(for: type(of: self)).path(forResource: named.deletingPathExtension, ofType: named.pathExtension)
     }
+
+    func contentsOfFolder(at path: String) -> [String]? {
+        do{
+            return try FileManager.default.contentsOfDirectory(atPath: path)
+        }catch {
+            return nil
+        }
+    }
 }
