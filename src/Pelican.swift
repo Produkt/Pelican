@@ -71,6 +71,8 @@ public protocol Unpacker {
     func contentInfo(in filePath: String, completion: @escaping ContentInfoCompletion) -> UnpackTask
     @discardableResult
     func unpack(fileAt filePath: String, in destinationPath: String, completion: @escaping UnpackTaskCompletion) -> UnpackTask
+    @discardableResult
+    func unpack(fileWith fileInfo: FileInfo, from filePath: String, in destinationPath: String, completion: @escaping UnpackTaskCompletion) -> UnpackTask
 }
 
 public protocol UnpackTask {
@@ -82,4 +84,5 @@ public protocol UnpackTask {
 public protocol FileInfo {
     var fileName: String { get }
     var fileCRC: Int { get }
+    var index: UInt { get }
 }

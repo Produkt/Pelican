@@ -90,6 +90,36 @@ class ZipTests: PelicanTests {
         XCTAssertEqual(contents[3], "Pelecanus_conspicillatus_-Australia_-8_LICENCE")
     }
 
+    func testCanUnzipASpecificFileUsingAFileInfo() {
+        // Given
+        let filePath = pathForFixture("Pelican.zip")!
+        let zipUnpacker = Pelican.unpacker(for: .ZIP)!
+        let unpackPath = unzipCachesPath()
+
+        // When
+        let contentInfoExpectation = expectation(description: "contentInfo")
+        var contentInfo:[FileInfo]! = nil
+        zipUnpacker.contentInfo(in: filePath) { result in
+            guard case let .success(contentInfoResult) = result else { return }
+            contentInfo = contentInfoResult
+            contentInfoExpectation.fulfill()
+        }
+        waitForExpectations(timeout: 1, handler: nil)
+
+        let unzipExpectation = expectation(description: "unzip")
+        zipUnpacker.unpack(fileWith: contentInfo[0], from: filePath, in: unpackPath) { result in
+            guard case .success() = result else { return }
+            unzipExpectation.fulfill()
+        }
+        waitForExpectations(timeout: 1, handler: nil)
+
+        // Then
+        XCTAssert(FileManager.default.fileExists(atPath: unpackPath))
+        let contents = contentsOfFolder(at: unpackPath)!
+        XCTAssertEqual(contents.count, 1)
+        XCTAssertEqual(contents[0], "CompressedFile1.txt")
+    }
+
     private func zipCachesPath() -> String {
         return cachesPath(at: "zipped")
     }

@@ -18,6 +18,10 @@ extension String {
         return (self as NSString).deletingPathExtension
     }
 
+    var deletingLastPathComponent: String {
+        return (self as NSString).deletingLastPathComponent
+    }
+
     func appendingPathComponent(_ str: String) -> String {
         return (self as NSString).appendingPathComponent(str)
     }
