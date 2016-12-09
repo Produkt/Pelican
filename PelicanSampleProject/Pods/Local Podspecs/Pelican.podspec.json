@@ -122,7 +122,7 @@
   "compiler_flags": "-Xanalyzer -analyzer-disable-all-checks",
   "dependencies": {
     "Result": [
-      "~> 3.0.0"
+      "~> 3.1.0"
     ]
   }
 }

@@ -121,5 +121,5 @@ Pod::Spec.new do |s|
                 'OTHER_CPLUSPLUSFLAGS' => "$(inherited) -DSILENT -DRARDLL $(OTHER_CFLAGS)"
   }
   s.compiler_flags = "-Xanalyzer -analyzer-disable-all-checks"
-  s.dependency 'Result', '~> 3.0.0'
+  s.dependency 'Result', '~> 3.1.0'
 end
