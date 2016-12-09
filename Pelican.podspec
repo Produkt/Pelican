@@ -33,6 +33,7 @@ Pod::Spec.new do |s|
   s.libraries = 'z'
 
   s.source_files = 'src/*.{swift,h}',
+                    'src/Helpers/*.{swift}',
                     'src/minizip/*.{c,h}',
                     'src/unrar/*.hpp',
                     'src/unrar/rar.cpp',

@@ -15,7 +15,7 @@ public enum PelicanType: String {
 
 public typealias PackTaskCompletion = (Result<Void, PackError>) -> Void
 public typealias ContentInfoCompletion = (Result<[FileInfo], UnpackError>) -> Void
-public typealias UnpackTaskCompletion = (Result<Void, PackError>) -> Void
+public typealias UnpackTaskCompletion = (Result<Void, UnpackError>) -> Void
 
 open class Pelican {
 
@@ -63,7 +63,7 @@ public protocol PackTask {
 // MARK: Unpacking
 
 public struct UnpackError: Error {
-
+    let underlyingError: Error
 }
 
 public protocol Unpacker {

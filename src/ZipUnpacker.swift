@@ -3,7 +3,7 @@
 //  Pelican
 //
 //  Created by Daniel Garcia on 08/12/2016.
-//
+//  Copyright © 2016 Produkt Studio. All rights reserved.
 //
 
 import Foundation
@@ -33,10 +33,22 @@ public class ZipUnpacker: Unpacker {
 
 class ZipUnpackOperation: Operation, UnpackTask {
 
+    enum UnzipError: Error {
+        case UnableToReadZipFileAttributes
+        case UnableToOpenZipFile
+        case UnableToOpenFile(index: UInt)
+        case UnableToReadFileInfo(index: UInt)
+        case UnableToReadFileName(index: UInt)
+        case UnableToCreateFileContainer(path: String, index: UInt)
+        case UnableToWriteFile(path: String, index: UInt)
+        case UnableToCloseFile(path: String, index: UInt)
+    }
+
     private var zip: zipFile?
     private let sourcePath: String
     private let destinationPath: String
     private let completion: UnpackTaskCompletion
+    private let overwrite: Bool = true
 
     init(sourcePath: String, destinationPath: String, completion: @escaping UnpackTaskCompletion) {
         self.sourcePath = sourcePath
@@ -46,11 +58,119 @@ class ZipUnpackOperation: Operation, UnpackTask {
 
     override func main() {
         super.main()
+        do {
+            try unzip()
+            completion(.success())
+        } catch (let unpackError) {
+            completion(.failure(UnpackError(underlyingError: unpackError)))
+        }
+    }
 
+    func unzip() throws {
+        let fileManager = FileManager.default
+
+        zip = unzOpen((sourcePath as NSString).utf8String)
+        var globalInfo: unz_global_info = unz_global_info()
+        unzGetGlobalInfo(zip, &globalInfo)
+
+        var fileAttributes:[FileAttributeKey : Any]! = nil
+        do {
+           fileAttributes = try fileManager.attributesOfItem(atPath: sourcePath)
+        } catch { throw UnzipError.UnableToReadZipFileAttributes }
+        let fileSize: UInt64 = (fileAttributes[FileAttributeKey.size] as! NSNumber).uint64Value
+        let currentPosition: UInt64 = 0
+
+        var cursorResult = unzGoToFirstFile(zip)
+        guard cursorResult == UNZ_OK else { throw UnzipError.UnableToOpenZipFile }
+        var index: UInt = 0
+        var currentFileCursorResult: Int32 = 0
+        let bufferSize: UInt32 = 4096
+        var buffer = Array<CUnsignedChar>(repeating: 0, count: Int(bufferSize))
+
+        repeat {
+            cursorResult = unzOpenCurrentFile(zip)
+            guard cursorResult == UNZ_OK else { throw UnzipError.UnableToOpenFile(index: index) }
+
+            var fileInfo = unz_file_info64()
+            memset(&fileInfo, 0, MemoryLayout<unz_file_info>.size)
+            currentFileCursorResult = unzGetCurrentFileInfo64(zip, &fileInfo, nil, 0, nil, 0, nil, 0)
+            if currentFileCursorResult != UNZ_OK {
+                unzCloseCurrentFile(zip)
+                throw UnzipError.UnableToReadFileInfo(index: index)
+            }
+
+            let fileNameSize = Int(fileInfo.size_filename) + 1
+            let fileName = UnsafeMutablePointer<CChar>.allocate(capacity: fileNameSize)
+
+            unzGetCurrentFileInfo64(zip, &fileInfo, fileName, UInt(fileNameSize), nil, 0, nil, 0)
+            fileName[Int(fileInfo.size_filename)] = 0
+            var pathString = String(cString: fileName)
+
+            guard pathString.characters.isEmpty == false else {
+                throw UnzipError.UnableToReadFileName(index: index)
+            }
+
+            var isDirectory = false
+            let fileInfoSizeFileName = Int(fileInfo.size_filename-1)
+            if (fileName[fileInfoSizeFileName] == "/".cString(using: String.Encoding.utf8)?.first || fileName[fileInfoSizeFileName] == "\\".cString(using: String.Encoding.utf8)?.first) {
+                isDirectory = true;
+            }
+            free(fileName)
+            if pathString.rangeOfCharacter(from: CharacterSet(charactersIn: "/\\")) != nil {
+                pathString = pathString.replacingOccurrences(of: "\\", with: "/")
+            }
+
+            let fullPath = destinationPath.appendingPathComponent(pathString)
+
+            let creationDate = Date()
+            let directoryAttributes = [FileAttributeKey.creationDate.rawValue : creationDate,
+                                       FileAttributeKey.modificationDate.rawValue : creationDate]
+            do {
+                if isDirectory {
+                    try fileManager.createDirectory(atPath: fullPath, withIntermediateDirectories: true, attributes: directoryAttributes)
+                }
+                else {
+                    let parentDirectory = (fullPath as NSString).deletingLastPathComponent
+                    try fileManager.createDirectory(atPath: parentDirectory, withIntermediateDirectories: true, attributes: directoryAttributes)
+                }
+            } catch {
+                throw UnzipError.UnableToCreateFileContainer(path: fullPath, index: index)
+            }
+            if fileManager.fileExists(atPath: fullPath) && !isDirectory && !overwrite {
+                unzCloseCurrentFile(zip)
+                cursorResult = unzGoToNextFile(zip)
+            }
+            var filePointer: UnsafeMutablePointer<FILE>?
+            filePointer = fopen(fullPath, "wb")
+            while filePointer != nil {
+                let readBytes = unzReadCurrentFile(zip, &buffer, bufferSize)
+                if readBytes > 0 {
+                    fwrite(buffer, Int(readBytes), 1, filePointer)
+                } else {
+                    break
+                }
+            }
+            fclose(filePointer)
+            currentFileCursorResult = unzCloseCurrentFile(zip)
+            if currentFileCursorResult == UNZ_CRCERROR {
+                throw UnzipError.UnableToCloseFile(path: fullPath, index: index)
+            }
+            cursorResult = unzGoToNextFile(zip)
+
+            index += 1
+        } while cursorResult == UNZ_OK && cursorResult != UNZ_END_OF_LIST_OF_FILE
+        unzClose(zip)
     }
 }
 
 class ZipUnpackContentInfoOperation: Operation, UnpackTask {
+
+    enum ContentInfoError: Error {
+        case UnableToOpenZipFile
+        case UnableToOpenFile(index: UInt)
+        case UnableToReadFileName(index: UInt)
+        case UnableToReadFileDate(fileName: String, index: UInt)
+    }
 
     private var zip: zipFile?
     private let sourcePath: String
@@ -63,32 +183,34 @@ class ZipUnpackContentInfoOperation: Operation, UnpackTask {
 
     override func main() {
         super.main()
-        guard let contentInfoResult = contentInfo() else {
-            completion(Result.failure(UnpackError()))
-            return
+        do {
+            let contentInfoResult = try contentInfo()
+            completion(Result.success(contentInfoResult))
+        } catch(let error) {
+            completion(Result.failure(UnpackError(underlyingError: error)))
         }
-        completion(Result.success(contentInfoResult))
     }
 
-    private func contentInfo() -> [FileInfo]? {
+    private func contentInfo() throws -> [FileInfo] {
         zip = unzOpen((sourcePath as NSString).utf8String)
         var globalInfo: unz_global_info = unz_global_info()
         unzGetGlobalInfo(zip, &globalInfo)
         var cursorResult = unzGoToFirstFile(zip)
-        guard cursorResult == UNZ_OK else { return nil }
+        guard cursorResult == UNZ_OK else { throw ContentInfoError.UnableToOpenZipFile }
         var index: UInt = 0
         var contentInfo = [FileInfo]()
         repeat {
             cursorResult = unzOpenCurrentFile(zip)
-            guard cursorResult == UNZ_OK else { break }
+            guard cursorResult == UNZ_OK else { throw ContentInfoError.UnableToOpenFile(index: index) }
 
             var unzFileInfo: unz_file_info = unz_file_info()
             memset(&unzFileInfo, 0, MemoryLayout<unz_file_info>.size)
             cursorResult = unzGetCurrentFileInfo(zip, &unzFileInfo, nil, 0, nil, 0, nil, 0)
             unzCloseCurrentFile(zip)
-            if let fileInfo = fileInfo(from: &unzFileInfo, at: index) {
-                contentInfo.append(fileInfo)
-            }
+            do {
+                let fileInfoResult = try fileInfo(from: &unzFileInfo, at: index)
+                contentInfo.append(fileInfoResult)
+            } catch (let error) { throw error }
             cursorResult = unzGoToNextFile(zip)
             index += 1
         } while cursorResult == UNZ_OK && cursorResult != UNZ_END_OF_LIST_OF_FILE
@@ -96,7 +218,7 @@ class ZipUnpackContentInfoOperation: Operation, UnpackTask {
         return contentInfo
     }
 
-    private func fileInfo(from unzFileInfo: inout unz_file_info, at index: UInt) -> FileInfo? {
+    private func fileInfo(from unzFileInfo: inout unz_file_info, at index: UInt) throws -> FileInfo {
         let fileNameSize = Int(unzFileInfo.size_filename) + 1
         let fileName = UnsafeMutablePointer<CChar>.allocate(capacity: fileNameSize)
         unzGetCurrentFileInfo(zip, &unzFileInfo, fileName, uLong(fileNameSize), nil, 0, nil, 0)
@@ -105,8 +227,10 @@ class ZipUnpackContentInfoOperation: Operation, UnpackTask {
         let isDirectory = (fileName[Int(unzFileInfo.size_filename) - 1] == "/".cString(using: String.Encoding.utf8)?.first ||
             fileName[Int(unzFileInfo.size_filename) - 1] == "\\".cString(using: String.Encoding.utf8)?.first)
 
-        guard let fileInfoName = String(utf8String: fileName),
-            let fileInfoDate = Date.date(MSDOSFormat: UInt32(unzFileInfo.dosDate)) else { return nil }
+        guard let fileInfoName = String(utf8String: fileName) else {
+            throw ContentInfoError.UnableToReadFileName(index: index)
+        }
+        guard let fileInfoDate = Date.date(MSDOSFormat: UInt32(unzFileInfo.dosDate)) else { throw ContentInfoError.UnableToReadFileDate(fileName: fileInfoName, index: index) }
 
         let zipFileInfo = ZipFileInfo(fileName: fileInfoName,
                                       fileCRC: Int(unzFileInfo.crc),

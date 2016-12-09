@@ -14,20 +14,25 @@ import Result
 
 class ZipTests: PelicanTests {
 
+    override func tearDown() {
+        super.tearDown()
+        try? FileManager.default.removeItem(atPath: zipCachesPath())
+        try? FileManager.default.removeItem(atPath: unzipCachesPath())
+    }
+
     func testCanCreateAZipFile() {
         // Given
         let filesToZipPaths = [
             pathForFixture("File1.txt")!,
             pathForFixture("File2.txt")!
         ]
-        let expectedHash = "4b0c329e4997abdb6d76e40f2625d465"
-        let archivePath = cachesPath(at: "zipped").appendingPathComponent("achive.zip")
+        let zipPath = zipCachesPath().appendingPathComponent("achive.zip")
         let zipPacker = Pelican.packer(for: .ZIP)!
 
         // When
         let packExpectation = expectation(description: "pack")
         var packResult: Result<Void, PackError>! = nil
-        zipPacker.pack(files: filesToZipPaths, in: archivePath) { result in
+        zipPacker.pack(files: filesToZipPaths, in: zipPath) { result in
             packResult = result
             packExpectation.fulfill()
         }
@@ -35,8 +40,7 @@ class ZipTests: PelicanTests {
 
         // Then
         XCTAssertNil(packResult.error)
-        XCTAssertTrue(FileManager.default.fileExists(atPath: archivePath), "Archive created");
-        XCTAssertEqual(FileHash.md5HashOfFile(atPath: archivePath), expectedHash, "Hash of file mismatch at \(archivePath)")
+        XCTAssertTrue(FileManager.default.fileExists(atPath: zipPath), "Archive created");
     }
 
     func testCanFetchFileInfo() {
@@ -66,10 +70,10 @@ class ZipTests: PelicanTests {
         // Given
         let filePath = pathForFixture("Pelican.zip")!
         let zipUnpacker = Pelican.unpacker(for: .ZIP)!
-        let unpackPath = cachesPath(at: "unzipped")
+        let unpackPath = unzipCachesPath()
 
         // When
-        let unzipExpectation = expectation(description: "unzipFile")
+        let unzipExpectation = expectation(description: "unzip")
         zipUnpacker.unpack(fileAt: filePath, in: unpackPath, completion: { result in
             guard case .success() = result else { return }
             unzipExpectation.fulfill()
@@ -78,11 +82,19 @@ class ZipTests: PelicanTests {
 
         // Then
         XCTAssert(FileManager.default.fileExists(atPath: unpackPath))
-        let contents = contentsOfFolder(at: unpackPath)
-        XCTAssertEqual(contents?.count, 4)
-        XCTAssertEqual(contents?[0], "CompressedFile1.txt")
-        XCTAssertEqual(contents?[1], "CompressedFile2.txt")
-        XCTAssertEqual(contents?[2], "Pelecanus_conspicillatus_-Australia_-8.jpg")
-        XCTAssertEqual(contents?[3], "Pelecanus_conspicillatus_-Australia_-8_LICENCE")
+        let contents = contentsOfFolder(at: unpackPath)!
+        XCTAssertEqual(contents.count, 4)
+        XCTAssertEqual(contents[0], "CompressedFile1.txt")
+        XCTAssertEqual(contents[1], "CompressedFile2.txt")
+        XCTAssertEqual(contents[2], "Pelecanus_conspicillatus_-Australia_-8.jpg")
+        XCTAssertEqual(contents[3], "Pelecanus_conspicillatus_-Australia_-8_LICENCE")
+    }
+
+    private func zipCachesPath() -> String {
+        return cachesPath(at: "zipped")
+    }
+
+    private func unzipCachesPath() -> String {
+        return cachesPath(at: "unzipped")
     }
 }
