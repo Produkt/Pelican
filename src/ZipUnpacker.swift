@@ -10,8 +10,7 @@ import Foundation
 import minizip
 import Result
 
-public typealias FileInfoType = ZipFileInfo
-public typealias ContentInfoCompletion = (Result<[FileInfoType], UnpackError>) -> Void
+public typealias ContentInfoCompletion = (Result<[ZipFileInfo], UnpackError>) -> Void
 
 public class ZipUnpacker: Unpacker {
 
