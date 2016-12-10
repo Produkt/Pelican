@@ -20,6 +20,8 @@
 		95982F231DF9A202001771BA /* PelicanTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95982F221DF9A202001771BA /* PelicanTests.swift */; };
 		95982F251DF9A3F4001771BA /* Pelican.zip in Resources */ = {isa = PBXBuildFile; fileRef = 95982F241DF9A3F4001771BA /* Pelican.zip */; };
 		95E8757E1DFC34E000E976FF /* Pelecanus_conspicillatus_-Australia_-8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 95E8757D1DFC34E000E976FF /* Pelecanus_conspicillatus_-Australia_-8.jpg */; };
+		95E875861DFC82A300E976FF /* RarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E875851DFC82A300E976FF /* RarTests.swift */; };
+		95E875881DFC83A600E976FF /* Pelican.rar in Resources */ = {isa = PBXBuildFile; fileRef = 95E875871DFC83A600E976FF /* Pelican.rar */; };
 		EB1F67E0F90B67EC2E1870ED /* Pods_PelicanSampleProjectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 757419E12E9A44562C1A06DA /* Pods_PelicanSampleProjectTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +56,8 @@
 		95982F221DF9A202001771BA /* PelicanTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PelicanTests.swift; sourceTree = "<group>"; };
 		95982F241DF9A3F4001771BA /* Pelican.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = Pelican.zip; sourceTree = "<group>"; };
 		95E8757D1DFC34E000E976FF /* Pelecanus_conspicillatus_-Australia_-8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Pelecanus_conspicillatus_-Australia_-8.jpg"; sourceTree = "<group>"; };
+		95E875851DFC82A300E976FF /* RarTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RarTests.swift; sourceTree = "<group>"; };
+		95E875871DFC83A600E976FF /* Pelican.rar */ = {isa = PBXFileReference; lastKnownFileType = file; path = Pelican.rar; sourceTree = "<group>"; };
 		A1498620C7E60BE6E3E1C321 /* Pods-PelicanSampleProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PelicanSampleProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PelicanSampleProject/Pods-PelicanSampleProject.debug.xcconfig"; sourceTree = "<group>"; };
 		E8B558D9F7DAB28EFA55058D /* Pods_PelicanSampleProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PelicanSampleProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E963D49C6BA05C8C41F38583 /* Pods-PelicanSampleProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PelicanSampleProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-PelicanSampleProject/Pods-PelicanSampleProject.release.xcconfig"; sourceTree = "<group>"; };
@@ -118,6 +122,7 @@
 				95982F171DF91394001771BA /* Fixtures */,
 				95982F1F1DF988EF001771BA /* Supporting Files */,
 				95982F0C1DF91381001771BA /* ZipTests.swift */,
+				95E875851DFC82A300E976FF /* RarTests.swift */,
 			);
 			path = PelicanSampleProjectTests;
 			sourceTree = "<group>";
@@ -129,6 +134,7 @@
 				95982F191DF91394001771BA /* File2.txt */,
 				95E8757D1DFC34E000E976FF /* Pelecanus_conspicillatus_-Australia_-8.jpg */,
 				95982F241DF9A3F4001771BA /* Pelican.zip */,
+				95E875871DFC83A600E976FF /* Pelican.rar */,
 			);
 			path = Fixtures;
 			sourceTree = "<group>";
@@ -267,6 +273,7 @@
 				95982F1B1DF91394001771BA /* File2.txt in Resources */,
 				95982F251DF9A3F4001771BA /* Pelican.zip in Resources */,
 				95E8757E1DFC34E000E976FF /* Pelecanus_conspicillatus_-Australia_-8.jpg in Resources */,
+				95E875881DFC83A600E976FF /* Pelican.rar in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -380,6 +387,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				95982F0D1DF91381001771BA /* ZipTests.swift in Sources */,
+				95E875861DFC82A300E976FF /* RarTests.swift in Sources */,
 				95982F1D1DF923E1001771BA /* TestExtensions.swift in Sources */,
 				95982F231DF9A202001771BA /* PelicanTests.swift in Sources */,
 			);

@@ -20,7 +20,7 @@ public struct ZipFileInfo: FileInfo {
     public let index: UInt
 }
 
-public class AllContentUnzipper: Unzipper {
+class AllContentUnzipper: Unzipper {
 
     init(sourcePath: String, destinationPath: String) {
         super.init(sourcePath: sourcePath, destinationPath: destinationPath)
@@ -37,7 +37,7 @@ public class AllContentUnzipper: Unzipper {
         }
     }
 
-    fileprivate func unzipAllContent() throws -> [ZipFileInfo] {
+    private func unzipAllContent() throws -> [ZipFileInfo] {
         var unzippedFilesInfo = [ZipFileInfo]()
         do {
             try openZipFile()
@@ -66,7 +66,7 @@ public class AllContentUnzipper: Unzipper {
     }
 }
 
-public class SingleFileUnzipper: Unzipper {
+class SingleFileUnzipper: Unzipper {
 
     fileprivate let fileInfo: ZipFileInfo
 
@@ -123,7 +123,7 @@ public class SingleFileUnzipper: Unzipper {
     }
 }
 
-public class ContentInfoUnzipper: Unzipper {
+class ContentInfoUnzipper: Unzipper {
 
     public typealias ContentInfoResult = Result<[ZipFileInfo], UnpackError>
     public typealias ContentInfoCompletion = (ContentInfoResult) -> Void
@@ -141,7 +141,7 @@ public class ContentInfoUnzipper: Unzipper {
         }
     }
 
-    func contentFilesInfo() throws -> [ZipFileInfo] {
+    private func contentFilesInfo() throws -> [ZipFileInfo] {
         var contentFilesInfo = [ZipFileInfo]()
         do {
             try openZipFile()
@@ -180,7 +180,7 @@ public class ContentInfoUnzipper: Unzipper {
     }
 }
 
-public class Unzipper {
+class Unzipper {
 
     fileprivate enum UnzipError: Error {
         case RequiredDestinationPathNotDefined
@@ -206,7 +206,15 @@ public class Unzipper {
     fileprivate let fileManager = FileManager.default
     fileprivate var index: UInt = 0
 
-    init(sourcePath: String, destinationPath: String? = nil) {
+    private init() {
+        // This init is never used. 
+        // Is here just to avoid direct instantiation and get a similar effect of an abtract class
+        self.sourcePath = ""
+        self.destinationPath = ""
+        self.buffer = Array<CUnsignedChar>(repeating: 0, count: Int(bufferSize))
+    }
+
+    fileprivate init(sourcePath: String, destinationPath: String? = nil) {
         self.sourcePath = sourcePath
         self.destinationPath = destinationPath
         self.buffer = Array<CUnsignedChar>(repeating: 0, count: Int(bufferSize))
@@ -309,7 +317,7 @@ public class Unzipper {
         return isDirectory
     }
 
-    func fileName(from fileInfo: inout unz_file_info) -> String {
+    fileprivate func fileName(from fileInfo: inout unz_file_info) -> String {
         let fileNameSize = Int(fileInfo.size_filename) + 1
         let fileName = UnsafeMutablePointer<CChar>.allocate(capacity: fileNameSize)
         defer {

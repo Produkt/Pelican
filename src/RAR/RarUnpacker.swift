@@ -9,37 +9,44 @@
 import Foundation
 import Result
 
-class RarUnpacker: Unpacker {
+public class RarUnpacker: Unpacker {
 
     public typealias ContentInfoResult = Result<[RarFileInfo], UnpackError>
     public typealias ContentInfoCompletion = (ContentInfoResult) -> Void
 
+    public let operationQueue: OperationQueue
+
+    init(operationQueue: OperationQueue) {
+        self.operationQueue = operationQueue
+    }
+
     @discardableResult
-    func unpack(fileAt filePath: String, in destinationPath: String, completion: @escaping UnpackContentTaskCompletion) -> UnpackTask {
+    public func unpack(fileAt filePath: String, in destinationPath: String, completion: @escaping UnpackContentTaskCompletion) -> UnpackTask {
         return RarUnpackAllContentOperation()
     }
 
     @discardableResult
-    func unpack(fileWith fileInfo: RarFileInfo, from filePath: String, completion: @escaping UnpackFileTaskCompletion) -> UnpackTask {
+    public func unpack(fileWith fileInfo: RarFileInfo, from filePath: String, completion: @escaping UnpackFileTaskCompletion) -> UnpackTask {
         return RarUnpackSingleFileOperation()
     }
 
     @discardableResult
-    func contentInfo(in filePath: String, completion: @escaping ContentInfoCompletion) -> UnpackTask {
+    public func contentInfo(in filePath: String, completion: @escaping ContentInfoCompletion) -> UnpackTask {
         return RarUnpackFilesInfoOperation()
     }
 
     @discardableResult
-    func unpack(fileAt filePath: String, in destinationPath: String) -> UnpackContentResult {
+    public func unpack(fileAt filePath: String, in destinationPath: String) -> UnpackContentResult {
         return .failure(UnpackError())
     }
 
-    func unpack(fileWith fileInfo: RarFileInfo, from filePath: String) -> UnpackFileResult {
+    public func unpack(fileWith fileInfo: RarFileInfo, from filePath: String) -> UnpackFileResult {
         return .failure(UnpackError())
     }
 
-    func contentInfo(in filePath: String) -> ContentInfoResult {
-        return .failure(UnpackError())
+    public func contentInfo(in filePath: String) -> ContentInfoResult {
+        let contentInfoUnzipper = ContentInfoUnrarrer(sourcePath: filePath)
+        return contentInfoUnzipper.unrar()
     }
 }
 
