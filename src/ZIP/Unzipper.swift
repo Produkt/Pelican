@@ -125,6 +125,9 @@ public class SingleFileUnzipper: Unzipper {
 
 public class ContentInfoUnzipper: Unzipper {
 
+    public typealias ContentInfoResult = Result<[ZipFileInfo], UnpackError>
+    public typealias ContentInfoCompletion = (ContentInfoResult) -> Void
+
     init(sourcePath: String) {
         super.init(sourcePath: sourcePath)
     }

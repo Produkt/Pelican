@@ -9,10 +9,10 @@
 import Foundation
 import Result
 
-public typealias ContentInfoResult = Result<[ZipFileInfo], UnpackError>
-public typealias ContentInfoCompletion = (ContentInfoResult) -> Void
-
 public class ZipUnpacker: Unpacker {
+
+    public typealias ContentInfoResult = Result<[ZipFileInfo], UnpackError>
+    public typealias ContentInfoCompletion = (ContentInfoResult) -> Void
 
     public let operationQueue: OperationQueue
 
@@ -44,6 +44,7 @@ public class ZipUnpacker: Unpacker {
         return contentInfoTask
     }
 
+    @discardableResult
     public func unpack(fileAt filePath: String, in destinationPath: String) -> UnpackContentResult {
         let allContentUnzipper = AllContentUnzipper(sourcePath: filePath, destinationPath: destinationPath)
         return allContentUnzipper.unzip()
@@ -95,6 +96,9 @@ fileprivate class ZipUnpackAllContentOperation: Operation, UnpackTask {
 }
 
 fileprivate class ZipUnpackFilesInfoOperation: Operation, UnpackTask {
+
+    public typealias ContentInfoResult = Result<[ZipFileInfo], UnpackError>
+    public typealias ContentInfoCompletion = (ContentInfoResult) -> Void
 
     private let contentInfoUnzipper: ContentInfoUnzipper
     private let completion: ContentInfoCompletion

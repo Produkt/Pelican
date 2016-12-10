@@ -56,7 +56,11 @@ public protocol PackTask {
 // MARK: Unpacking
 
 public struct UnpackError: Error {
-    let underlyingError: Error
+    let underlyingError: Error?
+
+    init(underlyingError: Error? = nil) {
+        self.underlyingError = underlyingError
+    }
 }
 
 public struct UnpackContentSummary {
@@ -78,6 +82,7 @@ public protocol Unpacker {
 
     @discardableResult
     func unpack(fileAt filePath: String, in destinationPath: String, completion: @escaping UnpackContentTaskCompletion) -> UnpackTask
+    @discardableResult
     func unpack(fileAt filePath: String, in destinationPath: String) -> UnpackContentResult
     @discardableResult
     func unpack(fileWith fileInfo: FileInfoType, from filePath: String, completion: @escaping UnpackFileTaskCompletion) -> UnpackTask

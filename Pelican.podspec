@@ -34,6 +34,7 @@ Pod::Spec.new do |s|
 
   s.source_files = 'src/*.{swift,h}',
                     'src/ZIP/*.{swift}',
+                    'src/RAR/*.{swift}',
                     'src/Helpers/*.{swift}',
                     'src/vendors/minizip/*.{c,h}',
                     'src/vendors/unrar/*.hpp',
