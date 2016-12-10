@@ -10,25 +10,32 @@ import Foundation
 import minizip
 import Result
 
+public typealias FileInfoType = ZipFileInfo
+public typealias ContentInfoCompletion = (Result<[FileInfoType], UnpackError>) -> Void
+
 public class ZipUnpacker: Unpacker {
+
     public let operationQueue: OperationQueue
 
     init(operationQueue: OperationQueue) {
         self.operationQueue = operationQueue
     }
 
+    @discardableResult
     public func unpack(fileAt filePath: String, in destinationPath: String, completion: @escaping UnpackTaskCompletion) -> UnpackTask {
         let unzipTask = ZipUnpackAllContentOperation(sourcePath: filePath, destinationPath: destinationPath, completion: completion)
         operationQueue.addOperation(unzipTask)
         return unzipTask
     }
 
-    public func unpack(fileWith fileInfo: FileInfo, from filePath: String, in destinationPath: String, completion: @escaping UnpackTaskCompletion) -> UnpackTask {
+    @discardableResult
+    public func unpack(fileWith fileInfo: ZipFileInfo, from filePath: String, in destinationPath: String, completion: @escaping UnpackTaskCompletion) -> UnpackTask {
         let unzipFileTask = ZipUnpackSingleFileOperation(fileInfo: fileInfo, sourcePath: filePath, destinationPath: destinationPath, completion: completion)
         operationQueue.addOperation(unzipFileTask)
         return unzipFileTask
     }
 
+    @discardableResult
     public func contentInfo(in filePath: String, completion: @escaping ContentInfoCompletion) -> UnpackTask {
         let contentInfoTask = ZipUnpackFilesInfoOperation(sourcePath: filePath, completion: completion)
         operationQueue.addOperation(contentInfoTask)
@@ -36,12 +43,12 @@ public class ZipUnpacker: Unpacker {
     }
 }
 
-class ZipUnpackSingleFileOperation: ZipUnpackOperation {
+fileprivate class ZipUnpackSingleFileOperation: ZipUnpackOperation {
 
-    fileprivate let fileInfo: FileInfo
+    fileprivate let fileInfo: ZipFileInfo
     fileprivate let completion: UnpackTaskCompletion
 
-    init(fileInfo: FileInfo, sourcePath: String, destinationPath: String?, completion: @escaping UnpackTaskCompletion) {
+    init(fileInfo: ZipFileInfo, sourcePath: String, destinationPath: String?, completion: @escaping UnpackTaskCompletion) {
         self.fileInfo = fileInfo
         self.completion = completion
         super.init(sourcePath: sourcePath, destinationPath: destinationPath)
@@ -69,7 +76,7 @@ class ZipUnpackSingleFileOperation: ZipUnpackOperation {
     }
 }
 
-class ZipUnpackAllContentOperation: ZipUnpackOperation {
+fileprivate class ZipUnpackAllContentOperation: ZipUnpackOperation {
 
     fileprivate let completion: UnpackTaskCompletion
 
@@ -106,7 +113,7 @@ class ZipUnpackAllContentOperation: ZipUnpackOperation {
     }
 }
 
-class ZipUnpackFilesInfoOperation: ZipUnpackOperation {
+fileprivate class ZipUnpackFilesInfoOperation: ZipUnpackOperation {
 
     private let completion: ContentInfoCompletion
 
@@ -125,8 +132,8 @@ class ZipUnpackFilesInfoOperation: ZipUnpackOperation {
         }
     }
 
-    func contentFilesInfo() throws -> [FileInfo] {
-        var contentFilesInfo = [FileInfo]()
+    func contentFilesInfo() throws -> [ZipFileInfo] {
+        var contentFilesInfo = [ZipFileInfo]()
         do {
             try openZipFile()
             defer {
@@ -145,7 +152,7 @@ class ZipUnpackFilesInfoOperation: ZipUnpackOperation {
         return contentFilesInfo
     }
 
-    private func openCurrentFileAndLoadFileInfo() throws -> FileInfo {
+    private func openCurrentFileAndLoadFileInfo() throws -> ZipFileInfo {
         let openCurrentFileResult = unzOpenCurrentFile(zip)
         guard openCurrentFileResult == UNZ_OK else {
             throw UnzipError.UnableToOpenFile(index: index)
@@ -156,7 +163,7 @@ class ZipUnpackFilesInfoOperation: ZipUnpackOperation {
         guard var fileInfo = currentFileInfo() else {
             throw UnzipError.UnableToReadFileInfo(index: index)
         }
-        var zipFileInfo: FileInfo! = nil
+        var zipFileInfo: ZipFileInfo! = nil
         do {
             zipFileInfo = try createAZipFileInfo(from: &fileInfo)
         } catch(let error) { throw error }
@@ -164,7 +171,7 @@ class ZipUnpackFilesInfoOperation: ZipUnpackOperation {
     }
 }
 
-class ZipUnpackOperation: Operation, UnpackTask {
+fileprivate class ZipUnpackOperation: Operation, UnpackTask {
 
     fileprivate enum UnzipError: Error {
         case RequiredDestinationPathNotDefined
@@ -298,7 +305,7 @@ class ZipUnpackOperation: Operation, UnpackTask {
         return String(cString: fileName)
     }
 
-    fileprivate func createAZipFileInfo(from unzFileInfo: inout unz_file_info) throws -> FileInfo {
+    fileprivate func createAZipFileInfo(from unzFileInfo: inout unz_file_info) throws -> ZipFileInfo {
         let isDirectory = caclculateIfIsDirectory(unzFileInfo)
         let fileInfoName = fileName(from: &unzFileInfo)
         let fileInfoDate = Date.date(MSDOSFormat: UInt32(unzFileInfo.dosDate))

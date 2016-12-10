@@ -13,29 +13,14 @@ public enum PelicanType: String {
     case RAR
 }
 
-public typealias PackTaskCompletion = (Result<Void, PackError>) -> Void
-public typealias ContentInfoCompletion = (Result<[FileInfo], UnpackError>) -> Void
-public typealias UnpackTaskCompletion = (Result<Void, UnpackError>) -> Void
-
 open class Pelican {
 
-    open static func packer(for type: PelicanType, operationQueue: OperationQueue? = nil) -> Packer? {
-        switch type {
-        case .ZIP:
-            return ZipPacker(operationQueue: operationQueue ?? buildOperationQueue(for: type))
-        case .RAR:
-            // As RAR is a proprietary format, we cant pack. Only unpack
-            return nil
-        }
+    open static func zipUnpacker(operationQueue: OperationQueue? = nil) -> ZipUnpacker {
+        return ZipUnpacker(operationQueue: operationQueue ?? buildOperationQueue(for: .ZIP))
     }
-    
-    open static func unpacker(for type: PelicanType, operationQueue: OperationQueue? = nil) -> Unpacker? {
-        switch type {
-        case .ZIP:
-            return ZipUnpacker(operationQueue: operationQueue ?? buildOperationQueue(for: type))
-        case .RAR:
-            return nil
-        }
+
+    open static func zipPacker(operationQueue: OperationQueue? = nil) -> ZipPacker {
+        return ZipPacker(operationQueue: operationQueue ?? buildOperationQueue(for: .ZIP))
     }
 
     private static func buildOperationQueue(for type: PelicanType) -> OperationQueue {
@@ -51,7 +36,10 @@ public struct PackError: Error {
 
 }
 
+public typealias PackTaskCompletion = (Result<Void, PackError>) -> Void
+
 public protocol Packer {
+
     @discardableResult
     func pack(files filePaths: [String], in filePath: String, completion: @escaping PackTaskCompletion) -> PackTask
 }
@@ -66,11 +54,17 @@ public struct UnpackError: Error {
     let underlyingError: Error
 }
 
+public typealias UnpackTaskCompletion = (Result<Void, UnpackError>) -> Void
+
 public protocol Unpacker {
+
+    associatedtype FileInfoType
+    typealias ContentInfoCompletion = (Result<[FileInfoType], UnpackError>) -> Void
+
     @discardableResult
     func unpack(fileAt filePath: String, in destinationPath: String, completion: @escaping UnpackTaskCompletion) -> UnpackTask
     @discardableResult
-    func unpack(fileWith fileInfo: FileInfo, from filePath: String, in destinationPath: String, completion: @escaping UnpackTaskCompletion) -> UnpackTask
+    func unpack(fileWith fileInfo: FileInfoType, from filePath: String, in destinationPath: String, completion: @escaping UnpackTaskCompletion) -> UnpackTask
     @discardableResult
     func contentInfo(in filePath: String, completion: @escaping ContentInfoCompletion) -> UnpackTask
 }

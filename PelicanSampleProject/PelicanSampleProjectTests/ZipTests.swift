@@ -27,7 +27,7 @@ class ZipTests: PelicanTests {
             pathForFixture("File2.txt")!
         ]
         let zipPath = zipCachesPath().appendingPathComponent("achive.zip")
-        let zipPacker = Pelican.packer(for: .ZIP)!
+        let zipPacker = Pelican.zipPacker()
 
         // When
         let packExpectation = expectation(description: "pack")
@@ -46,11 +46,11 @@ class ZipTests: PelicanTests {
     func testCanFetchFileInfo() {
         // Given
         let filePath = pathForFixture("Pelican.zip")!
-        let zipUnpacker = Pelican.unpacker(for: .ZIP)!
+        let zipUnpacker = Pelican.zipUnpacker()
 
         // When
         let contentInfoExpectation = expectation(description: "contentInfo")
-        var contentInfo:[FileInfo]? = nil
+        var contentInfo:[ZipFileInfo]? = nil
         zipUnpacker.contentInfo(in: filePath) { result in
             guard case let .success(contentInfoResult) = result else { return }
             contentInfo = contentInfoResult
@@ -69,7 +69,7 @@ class ZipTests: PelicanTests {
     func testCanUnzipFile() {
         // Given
         let filePath = pathForFixture("Pelican.zip")!
-        let zipUnpacker = Pelican.unpacker(for: .ZIP)!
+        let zipUnpacker = Pelican.zipUnpacker()
         let unpackPath = unzipCachesPath()
 
         // When
@@ -93,12 +93,12 @@ class ZipTests: PelicanTests {
     func testCanUnzipASpecificFileUsingAFileInfo() {
         // Given
         let filePath = pathForFixture("Pelican.zip")!
-        let zipUnpacker = Pelican.unpacker(for: .ZIP)!
+        let zipUnpacker = Pelican.zipUnpacker()
         let unpackPath = unzipCachesPath()
 
         // When
         let contentInfoExpectation = expectation(description: "contentInfo")
-        var contentInfo:[FileInfo]! = nil
+        var contentInfo:[ZipFileInfo]! = nil
         zipUnpacker.contentInfo(in: filePath) { result in
             guard case let .success(contentInfoResult) = result else { return }
             contentInfo = contentInfoResult
