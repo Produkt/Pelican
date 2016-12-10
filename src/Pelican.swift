@@ -78,13 +78,13 @@ public protocol Unpacker {
 
     @discardableResult
     func unpack(fileAt filePath: String, in destinationPath: String, completion: @escaping UnpackContentTaskCompletion) -> UnpackTask
-//    func unpack(fileAt filePath: String, in destinationPath: String) -> UnpackContentResult
+    func unpack(fileAt filePath: String, in destinationPath: String) -> UnpackContentResult
     @discardableResult
     func unpack(fileWith fileInfo: FileInfoType, from filePath: String, completion: @escaping UnpackFileTaskCompletion) -> UnpackTask
-//    func unpack(fileWith fileInfo: FileInfoType, from filePath: String) -> UnpackFileResult
+    func unpack(fileWith fileInfo: FileInfoType, from filePath: String) -> UnpackFileResult
     @discardableResult
     func contentInfo(in filePath: String, completion: @escaping ContentInfoCompletion) -> UnpackTask
-//    func contentInfo(in filePath: String) -> ContentInfoResult
+    func contentInfo(in filePath: String) -> ContentInfoResult
 }
 
 public protocol UnpackTask {

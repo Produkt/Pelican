@@ -43,6 +43,21 @@ public class ZipUnpacker: Unpacker {
         operationQueue.addOperation(contentInfoTask)
         return contentInfoTask
     }
+
+    public func unpack(fileAt filePath: String, in destinationPath: String) -> UnpackContentResult {
+        let allContentUnzipper = AllContentUnzipper(sourcePath: filePath, destinationPath: destinationPath)
+        return allContentUnzipper.unzip()
+    }
+
+    public func unpack(fileWith fileInfo: ZipFileInfo, from filePath: String) -> UnpackFileResult {
+        let singleFileUnzipper = SingleFileUnzipper(fileInfo: fileInfo, sourcePath: filePath)
+        return singleFileUnzipper.unzip()
+    }
+
+    public func contentInfo(in filePath: String) -> ContentInfoResult {
+        let contentInfoUnzipper = ContentInfoUnzipper(sourcePath: filePath)
+        return contentInfoUnzipper.unzip()
+    }
 }
 
 fileprivate class ZipUnpackSingleFileOperation: Operation, UnpackTask {

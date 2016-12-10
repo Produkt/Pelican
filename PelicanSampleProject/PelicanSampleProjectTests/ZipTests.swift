@@ -43,7 +43,27 @@ class ZipTests: PelicanTests {
         XCTAssertTrue(FileManager.default.fileExists(atPath: zipPath), "Archive created");
     }
 
-    func testCanFetchFileInfo() {
+    func testCanFetchFileInfo_Sync() {
+        // Given
+        let filePath = pathForFixture("Pelican.zip")!
+        let zipUnpacker = Pelican.zipUnpacker()
+
+        // When
+        let contentInfoResult = zipUnpacker.contentInfo(in: filePath)
+        guard case let .success(contentInfo) = contentInfoResult else {
+            XCTAssert(false, "ContentInfo fetch should succeed")
+            return
+        }
+
+        // Then
+        XCTAssertEqual(contentInfo.count, 4)
+        XCTAssertEqual(contentInfo[0].fileName, "CompressedFile1.txt")
+        XCTAssertEqual(contentInfo[1].fileName, "CompressedFile2.txt")
+        XCTAssertEqual(contentInfo[2].fileName, "Pelecanus_conspicillatus_-Australia_-8.jpg")
+        XCTAssertEqual(contentInfo[3].fileName, "Pelecanus_conspicillatus_-Australia_-8_LICENCE")
+    }
+
+    func testCanFetchFileInfo_Async() {
         // Given
         let filePath = pathForFixture("Pelican.zip")!
         let zipUnpacker = Pelican.zipUnpacker()
@@ -66,7 +86,37 @@ class ZipTests: PelicanTests {
         XCTAssertEqual(contentInfo?[3].fileName, "Pelecanus_conspicillatus_-Australia_-8_LICENCE")
     }
 
-    func testCanUnzipFile() {
+    func testCanUnzipFile_Sync() {
+        // Given
+        let filePath = pathForFixture("Pelican.zip")!
+        let zipUnpacker = Pelican.zipUnpacker()
+        let unpackPath = unzipCachesPath()
+
+        // When
+        let unzipResult = zipUnpacker.unpack(fileAt: filePath, in: unpackPath)
+        guard case let .success(unzipSummary) = unzipResult else {
+            XCTAssert(false, "Unzip whole file should succeed")
+            return
+        }
+
+        // Then
+        let unzippedFilesInfo = unzipSummary.unpackedFiles
+        XCTAssertEqual(unzippedFilesInfo.count, 4)
+        XCTAssertEqual(unzippedFilesInfo[0].fileName, "CompressedFile1.txt")
+        XCTAssertEqual(unzippedFilesInfo[1].fileName, "CompressedFile2.txt")
+        XCTAssertEqual(unzippedFilesInfo[2].fileName, "Pelecanus_conspicillatus_-Australia_-8.jpg")
+        XCTAssertEqual(unzippedFilesInfo[3].fileName, "Pelecanus_conspicillatus_-Australia_-8_LICENCE")
+
+        XCTAssert(FileManager.default.fileExists(atPath: unpackPath))
+        let contents = contentsOfFolder(at: unpackPath)!
+        XCTAssertEqual(contents.count, 4)
+        XCTAssertEqual(contents[0], "CompressedFile1.txt")
+        XCTAssertEqual(contents[1], "CompressedFile2.txt")
+        XCTAssertEqual(contents[2], "Pelecanus_conspicillatus_-Australia_-8.jpg")
+        XCTAssertEqual(contents[3], "Pelecanus_conspicillatus_-Australia_-8_LICENCE")
+    }
+
+    func testCanUnzipFile_Async() {
         // Given
         let filePath = pathForFixture("Pelican.zip")!
         let zipUnpacker = Pelican.zipUnpacker()
@@ -99,7 +149,31 @@ class ZipTests: PelicanTests {
         XCTAssertEqual(contents[3], "Pelecanus_conspicillatus_-Australia_-8_LICENCE")
     }
 
-    func testCanUnzipASpecificFileUsingAFileInfo() {
+    func testCanUnzipASpecificFileUsingAFileInfo_Sync() {
+        // Given
+        let filePath = pathForFixture("Pelican.zip")!
+        let expectedFileData = NSData(contentsOfFile: pathForFixture("Pelecanus_conspicillatus_-Australia_-8.jpg")!)! as Data
+        let zipUnpacker = Pelican.zipUnpacker()
+
+        // When
+        let contentInfoResult = zipUnpacker.contentInfo(in: filePath)
+        guard case let .success(contentInfo) = contentInfoResult else {
+            XCTAssert(false, "ContentInfo fetch should succeed")
+            return
+        }
+
+        let unzipSingleFileResult = zipUnpacker.unpack(fileWith: contentInfo[2], from: filePath)
+        guard case let .success(fileData) = unzipSingleFileResult else {
+            XCTAssert(false, "Unzip single file should succeed")
+            return
+        }
+
+        // Then
+        XCTAssertNotNil(fileData)
+        XCTAssertEqual(fileData, expectedFileData)
+    }
+
+    func testCanUnzipASpecificFileUsingAFileInfo_Async() {
         // Given
         let filePath = pathForFixture("Pelican.zip")!
         let expectedFileData = NSData(contentsOfFile: pathForFixture("Pelecanus_conspicillatus_-Australia_-8.jpg")!)! as Data
