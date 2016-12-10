@@ -74,13 +74,22 @@ class ZipTests: PelicanTests {
 
         // When
         let unzipExpectation = expectation(description: "unzip")
+        var unzipSummary: UnpackContentSummary! = nil
         zipUnpacker.unpack(fileAt: filePath, in: unpackPath, completion: { result in
-            guard case .success() = result else { return }
+            guard case let .success(summary) = result else { return }
+            unzipSummary = summary
             unzipExpectation.fulfill()
         })
         waitForExpectations(timeout: 1, handler: nil)
 
         // Then
+        let unzippedFilesInfo = unzipSummary.unpackedFiles
+        XCTAssertEqual(unzippedFilesInfo.count, 4)
+        XCTAssertEqual(unzippedFilesInfo[0].fileName, "CompressedFile1.txt")
+        XCTAssertEqual(unzippedFilesInfo[1].fileName, "CompressedFile2.txt")
+        XCTAssertEqual(unzippedFilesInfo[2].fileName, "Pelecanus_conspicillatus_-Australia_-8.jpg")
+        XCTAssertEqual(unzippedFilesInfo[3].fileName, "Pelecanus_conspicillatus_-Australia_-8_LICENCE")
+
         XCTAssert(FileManager.default.fileExists(atPath: unpackPath))
         let contents = contentsOfFolder(at: unpackPath)!
         XCTAssertEqual(contents.count, 4)
@@ -93,8 +102,8 @@ class ZipTests: PelicanTests {
     func testCanUnzipASpecificFileUsingAFileInfo() {
         // Given
         let filePath = pathForFixture("Pelican.zip")!
+        let expectedFileData = NSData(contentsOfFile: pathForFixture("Pelecanus_conspicillatus_-Australia_-8.jpg")!)! as Data
         let zipUnpacker = Pelican.zipUnpacker()
-        let unpackPath = unzipCachesPath()
 
         // When
         let contentInfoExpectation = expectation(description: "contentInfo")
@@ -107,17 +116,17 @@ class ZipTests: PelicanTests {
         waitForExpectations(timeout: 1, handler: nil)
 
         let unzipExpectation = expectation(description: "unzip")
-        zipUnpacker.unpack(fileWith: contentInfo[0], from: filePath, in: unpackPath) { result in
-            guard case .success() = result else { return }
+        var fileData: Data! = nil
+        zipUnpacker.unpack(fileWith: contentInfo[2], from: filePath) { result in
+            guard case let .success(data) = result else { return }
+            fileData = data
             unzipExpectation.fulfill()
         }
         waitForExpectations(timeout: 1, handler: nil)
 
         // Then
-        XCTAssert(FileManager.default.fileExists(atPath: unpackPath))
-        let contents = contentsOfFolder(at: unpackPath)!
-        XCTAssertEqual(contents.count, 1)
-        XCTAssertEqual(contents[0], "CompressedFile1.txt")
+        XCTAssertNotNil(fileData)
+        XCTAssertEqual(fileData, expectedFileData)
     }
 
     private func zipCachesPath() -> String {

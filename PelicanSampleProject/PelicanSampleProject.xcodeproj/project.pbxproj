@@ -19,6 +19,7 @@
 		95982F1D1DF923E1001771BA /* TestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95982F1C1DF923E1001771BA /* TestExtensions.swift */; };
 		95982F231DF9A202001771BA /* PelicanTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95982F221DF9A202001771BA /* PelicanTests.swift */; };
 		95982F251DF9A3F4001771BA /* Pelican.zip in Resources */ = {isa = PBXBuildFile; fileRef = 95982F241DF9A3F4001771BA /* Pelican.zip */; };
+		95E8757E1DFC34E000E976FF /* Pelecanus_conspicillatus_-Australia_-8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 95E8757D1DFC34E000E976FF /* Pelecanus_conspicillatus_-Australia_-8.jpg */; };
 		EB1F67E0F90B67EC2E1870ED /* Pods_PelicanSampleProjectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 757419E12E9A44562C1A06DA /* Pods_PelicanSampleProjectTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +53,7 @@
 		95982F1E1DF92507001771BA /* PelicanSampleProjectTestsBridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PelicanSampleProjectTestsBridgingHeader.h; sourceTree = "<group>"; };
 		95982F221DF9A202001771BA /* PelicanTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PelicanTests.swift; sourceTree = "<group>"; };
 		95982F241DF9A3F4001771BA /* Pelican.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = Pelican.zip; sourceTree = "<group>"; };
+		95E8757D1DFC34E000E976FF /* Pelecanus_conspicillatus_-Australia_-8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Pelecanus_conspicillatus_-Australia_-8.jpg"; sourceTree = "<group>"; };
 		A1498620C7E60BE6E3E1C321 /* Pods-PelicanSampleProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PelicanSampleProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PelicanSampleProject/Pods-PelicanSampleProject.debug.xcconfig"; sourceTree = "<group>"; };
 		E8B558D9F7DAB28EFA55058D /* Pods_PelicanSampleProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PelicanSampleProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E963D49C6BA05C8C41F38583 /* Pods-PelicanSampleProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PelicanSampleProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-PelicanSampleProject/Pods-PelicanSampleProject.release.xcconfig"; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 			children = (
 				95982F181DF91394001771BA /* File1.txt */,
 				95982F191DF91394001771BA /* File2.txt */,
+				95E8757D1DFC34E000E976FF /* Pelecanus_conspicillatus_-Australia_-8.jpg */,
 				95982F241DF9A3F4001771BA /* Pelican.zip */,
 			);
 			path = Fixtures;
@@ -263,6 +266,7 @@
 				95982F1A1DF91394001771BA /* File1.txt in Resources */,
 				95982F1B1DF91394001771BA /* File2.txt in Resources */,
 				95982F251DF9A3F4001771BA /* Pelican.zip in Resources */,
+				95E8757E1DFC34E000E976FF /* Pelecanus_conspicillatus_-Australia_-8.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,6 +433,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -479,6 +484,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -508,6 +514,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A1498620C7E60BE6E3E1C321 /* Pods-PelicanSampleProject.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = PelicanSampleProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -521,6 +528,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E963D49C6BA05C8C41F38583 /* Pods-PelicanSampleProject.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = PelicanSampleProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

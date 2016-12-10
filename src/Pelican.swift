@@ -8,24 +8,29 @@
 
 import Result
 
-public enum PelicanType: String {
+public enum PelicanFormat: String {
     case ZIP
     case RAR
+}
+
+public enum PelicanType: String {
+    case packer
+    case unpacker
 }
 
 open class Pelican {
 
     open static func zipUnpacker(operationQueue: OperationQueue? = nil) -> ZipUnpacker {
-        return ZipUnpacker(operationQueue: operationQueue ?? buildOperationQueue(for: .ZIP))
+        return ZipUnpacker(operationQueue: operationQueue ?? buildOperationQueue(type: .unpacker, format: .ZIP))
     }
 
     open static func zipPacker(operationQueue: OperationQueue? = nil) -> ZipPacker {
-        return ZipPacker(operationQueue: operationQueue ?? buildOperationQueue(for: .ZIP))
+        return ZipPacker(operationQueue: operationQueue ?? buildOperationQueue(type: .packer, format: .ZIP))
     }
 
-    private static func buildOperationQueue(for type: PelicanType) -> OperationQueue {
+    private static func buildOperationQueue(type: PelicanType, format: PelicanFormat) -> OperationQueue {
         let operationQueue = OperationQueue()
-        operationQueue.name = "com.produkt.pelican.\(type.rawValue)-queue-\(Date().timeIntervalSince1970)"
+        operationQueue.name = "com.pelican.\(type.rawValue)-\(format.rawValue)-\(Date().timeIntervalSince1970)"
         return operationQueue
     }
 }
@@ -54,19 +59,32 @@ public struct UnpackError: Error {
     let underlyingError: Error
 }
 
-public typealias UnpackTaskCompletion = (Result<Void, UnpackError>) -> Void
+public struct UnpackContentSummary {
+    public let startDate: Date
+    public let finishDate: Date
+    public let unpackedFiles: [FileInfo]
+}
+
+public typealias UnpackContentResult = Result<UnpackContentSummary, UnpackError>
+public typealias UnpackContentTaskCompletion = (UnpackContentResult) -> Void
+public typealias UnpackFileResult = Result<Data, UnpackError>
+public typealias UnpackFileTaskCompletion = (UnpackFileResult) -> Void
 
 public protocol Unpacker {
 
     associatedtype FileInfoType
-    typealias ContentInfoCompletion = (Result<[FileInfoType], UnpackError>) -> Void
+    typealias ContentInfoResult = Result<[FileInfoType], UnpackError>
+    typealias ContentInfoCompletion = (ContentInfoResult) -> Void
 
     @discardableResult
-    func unpack(fileAt filePath: String, in destinationPath: String, completion: @escaping UnpackTaskCompletion) -> UnpackTask
+    func unpack(fileAt filePath: String, in destinationPath: String, completion: @escaping UnpackContentTaskCompletion) -> UnpackTask
+//    func unpack(fileAt filePath: String, in destinationPath: String) -> UnpackContentResult
     @discardableResult
-    func unpack(fileWith fileInfo: FileInfoType, from filePath: String, in destinationPath: String, completion: @escaping UnpackTaskCompletion) -> UnpackTask
+    func unpack(fileWith fileInfo: FileInfoType, from filePath: String, completion: @escaping UnpackFileTaskCompletion) -> UnpackTask
+//    func unpack(fileWith fileInfo: FileInfoType, from filePath: String) -> UnpackFileResult
     @discardableResult
     func contentInfo(in filePath: String, completion: @escaping ContentInfoCompletion) -> UnpackTask
+//    func contentInfo(in filePath: String) -> ContentInfoResult
 }
 
 public protocol UnpackTask {
