@@ -7,6 +7,7 @@
 //
 
 import Result
+import unrarkit
 
 public struct RarFileInfo: FileInfo {
 
@@ -25,7 +26,7 @@ class ContentInfoUnrarrer: Unrarrer {
     }
 
     func unrar() -> ContentInfoResult {
-
+        try! URKArchive(path: sourcePath)
 
         return .failure(UnpackError())
     }

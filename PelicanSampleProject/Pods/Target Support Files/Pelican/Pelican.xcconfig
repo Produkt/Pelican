@@ -12,4 +12,4 @@ PODS_CONFIGURATION_BUILD_DIR = $PODS_BUILD_DIR/$(CONFIGURATION)$(EFFECTIVE_PLATF
 PODS_ROOT = ${SRCROOT}
 PRODUCT_BUNDLE_IDENTIFIER = org.cocoapods.${PRODUCT_NAME:rfc1034identifier}
 SKIP_INSTALL = YES
-SWIFT_INCLUDE_PATHS = /Users/danielgarcia/Development/iOS/Pelican/src/vendors/minizip/** $(SRCROOT)/Pelican/src/vendors/minizip/**
+SWIFT_INCLUDE_PATHS = /Users/danielgarcia/Development/iOS/Pelican/src/vendors/minizip/** $(SRCROOT)/Pelican/src/vendors/minizip/** /Users/danielgarcia/Development/iOS/Pelican/src/vendors/UnrarKit/** $(SRCROOT)/Pelican/src/vendors/UnrarKit/**
