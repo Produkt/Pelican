@@ -28,6 +28,10 @@ open class Pelican {
         return ZipPacker(operationQueue: operationQueue ?? buildOperationQueue(type: .packer, format: .ZIP))
     }
 
+    open static func rarUnpacker(operationQueue: OperationQueue? = nil) -> RarUnpacker {
+        return RarUnpacker(operationQueue: operationQueue ?? buildOperationQueue(type: .unpacker, format: .RAR))
+    }
+
     private static func buildOperationQueue(type: PelicanType, format: PelicanFormat) -> OperationQueue {
         let operationQueue = OperationQueue()
         operationQueue.name = "com.pelican.\(type.rawValue)-\(format.rawValue)-\(Date().timeIntervalSince1970)"

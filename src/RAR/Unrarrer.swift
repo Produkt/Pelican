@@ -26,8 +26,18 @@ class ContentInfoUnrarrer: Unrarrer {
     }
 
     func unrar() -> ContentInfoResult {
-        try! URKArchive(path: sourcePath)
-
+        do {
+            let unarchiver = try URKArchive(path: sourcePath)
+            let filesInfo = try unarchiver.listFileInfo()
+            let rarFilesInfo = filesInfo.enumerated().map({ (index, urkFileInfo) -> RarFileInfo in
+                return RarFileInfo(fileName: urkFileInfo.filename,
+                                   fileCRC: urkFileInfo.crc,
+                                   index: UInt(index))
+            })
+            return .success(rarFilesInfo)
+        }  catch  {
+            return .failure(UnpackError())
+        }
         return .failure(UnpackError())
     }
 }

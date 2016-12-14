@@ -32,7 +32,10 @@ public class RarUnpacker: Unpacker {
 
     @discardableResult
     public func contentInfo(in filePath: String, completion: @escaping ContentInfoCompletion) -> UnpackTask {
-        return RarUnpackFilesInfoOperation()
+        let contentInfoUnrarrer = ContentInfoUnrarrer(sourcePath: filePath)
+        let contentInfoTask = RarUnpackFilesInfoOperation(contentInfoUnrarrer: contentInfoUnrarrer, completion: completion)
+        operationQueue.addOperation(contentInfoTask)
+        return contentInfoTask
     }
 
     @discardableResult
@@ -45,8 +48,8 @@ public class RarUnpacker: Unpacker {
     }
 
     public func contentInfo(in filePath: String) -> ContentInfoResult {
-        let contentInfoUnzipper = ContentInfoUnrarrer(sourcePath: filePath)
-        return contentInfoUnzipper.unrar()
+        let contentInfoUnrarrer = ContentInfoUnrarrer(sourcePath: filePath)
+        return contentInfoUnrarrer.unrar()
     }
 }
 
@@ -86,20 +89,20 @@ fileprivate class RarUnpackAllContentOperation: Operation, UnpackTask {
 
 fileprivate class RarUnpackFilesInfoOperation: Operation, UnpackTask {
 
-//    public typealias ContentInfoResult = Result<[RarFileInfo], UnpackError>
-//    public typealias ContentInfoCompletion = (ContentInfoResult) -> Void
-//
-//    private let contentInfoUnzipper: ContentInfoUnzipper
-//    private let completion: ContentInfoCompletion
-//
-//    init(contentInfoUnzipper: ContentInfoUnzipper, completion: @escaping ContentInfoCompletion) {
-//        self.contentInfoUnzipper = contentInfoUnzipper
-//        self.completion = completion
-//    }
-//
-//    override func main() {
-//        super.main()
-//        let result = contentInfoUnzipper.unzip()
-//        completion(result)
-//    }
+    public typealias ContentInfoResult = Result<[RarFileInfo], UnpackError>
+    public typealias ContentInfoCompletion = (ContentInfoResult) -> Void
+
+    private let contentInfoUnrarrer: ContentInfoUnrarrer
+    private let completion: ContentInfoCompletion
+
+    init(contentInfoUnrarrer: ContentInfoUnrarrer, completion: @escaping ContentInfoCompletion) {
+        self.contentInfoUnrarrer = contentInfoUnrarrer
+        self.completion = completion
+    }
+
+    override func main() {
+        super.main()
+        let result = contentInfoUnrarrer.unrar()
+        completion(result)
+    }
 }
