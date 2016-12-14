@@ -22,7 +22,10 @@ public class RarUnpacker: Unpacker {
 
     @discardableResult
     public func unpack(fileAt filePath: String, in destinationPath: String, completion: @escaping UnpackContentTaskCompletion) -> UnpackTask {
-        return RarUnpackAllContentOperation()
+        let allContentUnrarer = AllContentUnrarer(sourcePath: filePath, destinationPath: destinationPath)
+        let contentInfoTask = RarUnpackAllContentOperation(allContentUnrarer: allContentUnrarer, completion: completion)
+        operationQueue.addOperation(contentInfoTask)
+        return contentInfoTask
     }
 
     @discardableResult
@@ -32,15 +35,16 @@ public class RarUnpacker: Unpacker {
 
     @discardableResult
     public func contentInfo(in filePath: String, completion: @escaping ContentInfoCompletion) -> UnpackTask {
-        let contentInfoUnrarrer = ContentInfoUnrarrer(sourcePath: filePath)
-        let contentInfoTask = RarUnpackFilesInfoOperation(contentInfoUnrarrer: contentInfoUnrarrer, completion: completion)
+        let contentInfoUnrarer = ContentInfoUnrarer(sourcePath: filePath)
+        let contentInfoTask = RarUnpackFilesInfoOperation(contentInfoUnrarer: contentInfoUnrarer, completion: completion)
         operationQueue.addOperation(contentInfoTask)
         return contentInfoTask
     }
 
     @discardableResult
     public func unpack(fileAt filePath: String, in destinationPath: String) -> UnpackContentResult {
-        return .failure(UnpackError())
+        let allContentUnrarer = AllContentUnrarer(sourcePath: filePath, destinationPath: destinationPath)
+        return allContentUnrarer.unrar()
     }
 
     public func unpack(fileWith fileInfo: RarFileInfo, from filePath: String) -> UnpackFileResult {
@@ -48,8 +52,8 @@ public class RarUnpacker: Unpacker {
     }
 
     public func contentInfo(in filePath: String) -> ContentInfoResult {
-        let contentInfoUnrarrer = ContentInfoUnrarrer(sourcePath: filePath)
-        return contentInfoUnrarrer.unrar()
+        let contentInfoUnrarer = ContentInfoUnrarer(sourcePath: filePath)
+        return contentInfoUnrarer.unrar()
     }
 }
 
@@ -72,19 +76,19 @@ fileprivate class RarUnpackSingleFileOperation: Operation, UnpackTask {
 
 fileprivate class RarUnpackAllContentOperation: Operation, UnpackTask {
 
-//    private let allContentUnzipper: AllContentUnzipper
-//    private let completion: UnpackContentTaskCompletion
-//
-//    init(allContentUnzipper: AllContentUnzipper, completion: @escaping UnpackContentTaskCompletion) {
-//        self.allContentUnzipper = allContentUnzipper
-//        self.completion = completion
-//    }
-//
-//    override func main() {
-//        super.main()
-//        let result = allContentUnzipper.unzip()
-//        completion(result)
-//    }
+    private let allContentUnrarer: AllContentUnrarer
+    private let completion: UnpackContentTaskCompletion
+
+    init(allContentUnrarer: AllContentUnrarer, completion: @escaping UnpackContentTaskCompletion) {
+        self.allContentUnrarer = allContentUnrarer
+        self.completion = completion
+    }
+
+    override func main() {
+        super.main()
+        let result = allContentUnrarer.unrar()
+        completion(result)
+    }
 }
 
 fileprivate class RarUnpackFilesInfoOperation: Operation, UnpackTask {
@@ -92,17 +96,17 @@ fileprivate class RarUnpackFilesInfoOperation: Operation, UnpackTask {
     public typealias ContentInfoResult = Result<[RarFileInfo], UnpackError>
     public typealias ContentInfoCompletion = (ContentInfoResult) -> Void
 
-    private let contentInfoUnrarrer: ContentInfoUnrarrer
+    private let contentInfoUnrarer: ContentInfoUnrarer
     private let completion: ContentInfoCompletion
 
-    init(contentInfoUnrarrer: ContentInfoUnrarrer, completion: @escaping ContentInfoCompletion) {
-        self.contentInfoUnrarrer = contentInfoUnrarrer
+    init(contentInfoUnrarer: ContentInfoUnrarer, completion: @escaping ContentInfoCompletion) {
+        self.contentInfoUnrarer = contentInfoUnrarer
         self.completion = completion
     }
 
     override func main() {
         super.main()
-        let result = contentInfoUnrarrer.unrar()
+        let result = contentInfoUnrarer.unrar()
         completion(result)
     }
 }
