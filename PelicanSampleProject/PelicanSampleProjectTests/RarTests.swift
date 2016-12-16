@@ -46,7 +46,10 @@ class RarTests: PelicanTests {
         let contentInfoExpectation = expectation(description: "contentInfo")
         var contentInfo:[RarFileInfo]? = nil
         rarUnpacker.contentInfo(in: filePath) { result in
-            guard case let .success(contentInfoResult) = result else { return }
+            guard case let .success(contentInfoResult) = result else {
+                XCTAssert(false, "ContentInfo fetch should succeed")
+                return
+            }
             contentInfo = contentInfoResult
             contentInfoExpectation.fulfill()
         }
@@ -68,18 +71,18 @@ class RarTests: PelicanTests {
 
         // When
         let unrarResult = rarUnpacker.unpack(fileAt: filePath, in: unpackPath)
-        guard case let .success(unzipSummary) = unrarResult else {
-            XCTAssert(false, "Unzip whole file should succeed")
+        guard case let .success(unrarSummary) = unrarResult else {
+            XCTAssert(false, "Unrar whole file should succeed")
             return
         }
 
         // Then
-        let unzippedFilesInfo = unzipSummary.unpackedFiles
-        XCTAssertEqual(unzippedFilesInfo.count, 4)
-        XCTAssertEqual(unzippedFilesInfo[0].fileName, "CompressedFile1.txt")
-        XCTAssertEqual(unzippedFilesInfo[1].fileName, "CompressedFile2.txt")
-        XCTAssertEqual(unzippedFilesInfo[2].fileName, "Pelecanus_conspicillatus_-Australia_-8.jpg")
-        XCTAssertEqual(unzippedFilesInfo[3].fileName, "Pelecanus_conspicillatus_-Australia_-8_LICENCE")
+        let unrarpedFilesInfo = unrarSummary.unpackedFiles
+        XCTAssertEqual(unrarpedFilesInfo.count, 4)
+        XCTAssertEqual(unrarpedFilesInfo[0].fileName, "CompressedFile1.txt")
+        XCTAssertEqual(unrarpedFilesInfo[1].fileName, "CompressedFile2.txt")
+        XCTAssertEqual(unrarpedFilesInfo[2].fileName, "Pelecanus_conspicillatus_-Australia_-8.jpg")
+        XCTAssertEqual(unrarpedFilesInfo[3].fileName, "Pelecanus_conspicillatus_-Australia_-8_LICENCE")
 
         XCTAssert(FileManager.default.fileExists(atPath: unpackPath))
         let contents = contentsOfFolder(at: unpackPath)!
@@ -100,7 +103,10 @@ class RarTests: PelicanTests {
         let unrarExpectation = expectation(description: "unrar")
         var unrarSummary: UnpackContentSummary! = nil
         rarUnpacker.unpack(fileAt: filePath, in: unpackPath, completion: { result in
-            guard case let .success(summary) = result else { return }
+            guard case let .success(summary) = result else {
+                XCTAssert(false, "Unrar whole file should succeed")
+                return
+            }
             unrarSummary = summary
             unrarExpectation.fulfill()
         })
@@ -121,6 +127,66 @@ class RarTests: PelicanTests {
         XCTAssertEqual(contents[1], "CompressedFile2.txt")
         XCTAssertEqual(contents[2], "Pelecanus_conspicillatus_-Australia_-8.jpg")
         XCTAssertEqual(contents[3], "Pelecanus_conspicillatus_-Australia_-8_LICENCE")
+    }
+
+    func testCanUnrarASpecificFileUsingAFileInfo_Sync() {
+        // Given
+        let filePath = pathForFixture("Pelican.rar")!
+        let expectedFileData = NSData(contentsOfFile: pathForFixture("Pelecanus_conspicillatus_-Australia_-8.jpg")!)! as Data
+        let rarUnpacker = Pelican.rarUnpacker()
+
+        // When
+        let contentInfoResult = rarUnpacker.contentInfo(in: filePath)
+        guard case let .success(contentInfo) = contentInfoResult else {
+            XCTAssert(false, "ContentInfo fetch should succeed")
+            return
+        }
+
+        let unrarSingleFileResult = rarUnpacker.unpack(fileWith: contentInfo[2], from: filePath)
+        guard case let .success(fileData) = unrarSingleFileResult else {
+            XCTAssert(false, "Unrar single file should succeed")
+            return
+        }
+
+        // Then
+        XCTAssertNotNil(fileData)
+        XCTAssertEqual(fileData, expectedFileData)
+    }
+
+    func testCanUnrarASpecificFileUsingAFileInfo_Async() {
+        // Given
+        let filePath = pathForFixture("Pelican.rar")!
+        let expectedFileData = NSData(contentsOfFile: pathForFixture("Pelecanus_conspicillatus_-Australia_-8.jpg")!)! as Data
+        let rarUnpacker = Pelican.rarUnpacker()
+
+        // When
+        let contentInfoExpectation = expectation(description: "contentInfo")
+        var contentInfo:[RarFileInfo]! = nil
+        rarUnpacker.contentInfo(in: filePath) { result in
+            guard case let .success(contentInfoResult) = result else {
+                XCTAssert(false, "ContentInfo fetch should succeed")
+                return
+            }
+            contentInfo = contentInfoResult
+            contentInfoExpectation.fulfill()
+        }
+        waitForExpectations(timeout: 1, handler: nil)
+
+        let unrarExpectation = expectation(description: "unrar")
+        var fileData: Data! = nil
+        rarUnpacker.unpack(fileWith: contentInfo[2], from: filePath) { result in
+            guard case let .success(data) = result else {
+                XCTAssert(false, "Unrar single file should succeed")
+                return
+            }
+            fileData = data
+            unrarExpectation.fulfill()
+        }
+        waitForExpectations(timeout: 1, handler: nil)
+
+        // Then
+        XCTAssertNotNil(fileData)
+        XCTAssertEqual(fileData, expectedFileData)
     }
 
     private func rarCachesPath() -> String {

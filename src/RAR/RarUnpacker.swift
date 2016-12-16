@@ -23,14 +23,17 @@ public class RarUnpacker: Unpacker {
     @discardableResult
     public func unpack(fileAt filePath: String, in destinationPath: String, completion: @escaping UnpackContentTaskCompletion) -> UnpackTask {
         let allContentUnrarer = AllContentUnrarer(sourcePath: filePath, destinationPath: destinationPath)
-        let contentInfoTask = RarUnpackAllContentOperation(allContentUnrarer: allContentUnrarer, completion: completion)
-        operationQueue.addOperation(contentInfoTask)
-        return contentInfoTask
+        let allContentTask = RarUnpackAllContentOperation(allContentUnrarer: allContentUnrarer, completion: completion)
+        operationQueue.addOperation(allContentTask)
+        return allContentTask
     }
 
     @discardableResult
     public func unpack(fileWith fileInfo: RarFileInfo, from filePath: String, completion: @escaping UnpackFileTaskCompletion) -> UnpackTask {
-        return RarUnpackSingleFileOperation()
+        let singleFileUnrarer = SingleFileUnrarer(sourcePath: filePath, fileInfo: fileInfo)
+        let singleFileTask = RarUnpackSingleFileOperation(singleFileUnrarer: singleFileUnrarer, completion: completion)
+        operationQueue.addOperation(singleFileTask)
+        return singleFileTask
     }
 
     @discardableResult
@@ -48,7 +51,8 @@ public class RarUnpacker: Unpacker {
     }
 
     public func unpack(fileWith fileInfo: RarFileInfo, from filePath: String) -> UnpackFileResult {
-        return .failure(UnpackError())
+        let singleFileUnrarer = SingleFileUnrarer(sourcePath: filePath, fileInfo: fileInfo)
+        return singleFileUnrarer.unrar()
     }
 
     public func contentInfo(in filePath: String) -> ContentInfoResult {
@@ -59,19 +63,19 @@ public class RarUnpacker: Unpacker {
 
 fileprivate class RarUnpackSingleFileOperation: Operation, UnpackTask {
 
-//    private let singleFileUnzipper: SingleFileUnzipper
-//    private let completion: UnpackFileTaskCompletion
-//
-//    init(singleFileUnzipper: SingleFileUnzipper, completion: @escaping UnpackFileTaskCompletion) {
-//        self.singleFileUnzipper = singleFileUnzipper
-//        self.completion = completion
-//    }
-//
-//    override func main() {
-//        super.main()
-//        let result = singleFileUnzipper.unzip()
-//        completion(result)
-//    }
+    private let singleFileUnrarer: SingleFileUnrarer
+    private let completion: UnpackFileTaskCompletion
+
+    init(singleFileUnrarer: SingleFileUnrarer, completion: @escaping UnpackFileTaskCompletion) {
+        self.singleFileUnrarer = singleFileUnrarer
+        self.completion = completion
+    }
+
+    override func main() {
+        super.main()
+        let result = singleFileUnrarer.unrar()
+        completion(result)
+    }
 }
 
 fileprivate class RarUnpackAllContentOperation: Operation, UnpackTask {

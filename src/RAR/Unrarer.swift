@@ -9,11 +9,24 @@
 import Result
 import unrarkit
 
-public struct RarFileInfo: FileInfo {
+class SingleFileUnrarer: Unrarer {
 
-    public let fileName: String
-    public let fileCRC: Int
-    public let index: UInt
+    let fileInfo: RarFileInfo
+
+    init(sourcePath: String, fileInfo: RarFileInfo) {
+        self.fileInfo = fileInfo
+        super.init(sourcePath: sourcePath, destinationPath: nil)
+    }
+
+    func unrar() -> UnpackFileResult {
+        do {
+            try openRarFile()
+            let fileData = try extractFile(with: fileInfo)
+            return .success(fileData)
+        } catch {
+            return .failure(UnpackError())
+        }
+    }
 }
 
 class AllContentUnrarer: Unrarer {
@@ -48,18 +61,11 @@ class ContentInfoUnrarer: Unrarer {
 
     func unrar() -> ContentInfoResult {
         do {
-            let unarchiver = try URKArchive(path: sourcePath)
-            let filesInfo = try unarchiver.listFileInfo()
-            let rarFilesInfo = filesInfo.enumerated().map({ (index, urkFileInfo) -> RarFileInfo in
-                return RarFileInfo(fileName: urkFileInfo.filename,
-                                   fileCRC: urkFileInfo.crc,
-                                   index: UInt(index))
-            })
+            let rarFilesInfo = try contentInfo()
             return .success(rarFilesInfo)
         }  catch  {
             return .failure(UnpackError())
         }
-        return .failure(UnpackError())
     }
 }
 
@@ -67,7 +73,6 @@ class Unrarer {
 
     fileprivate let sourcePath: String
     fileprivate let destinationPath: String?
-    private var rarFile: URKArchive?
 
     private init() {
         // This init is never used.
@@ -81,21 +86,69 @@ class Unrarer {
         self.destinationPath = destinationPath        
     }
 
-    fileprivate func openRarFile() throws {
-        rarFile = try URKArchive(path: sourcePath)
+    fileprivate func openRarFile() throws -> URKArchive {
+        return try URKArchive(path: sourcePath)
     }
 
     fileprivate func contentInfo() throws -> [RarFileInfo] {
-        let filesInfo = try rarFile!.listFileInfo()
+        let rarFile = try openRarFile()
+        let filesInfo = try rarFile.listFileInfo()
         let rarFilesInfo = filesInfo.enumerated().map({ (index, urkFileInfo) -> RarFileInfo in
-            return RarFileInfo(fileName: urkFileInfo.filename,
-                               fileCRC: urkFileInfo.crc,
-                               index: UInt(index))
+            return RarFileInfo(from: urkFileInfo, fileIndex: UInt(index))
         })
         return rarFilesInfo
     }
 
     fileprivate func extract() throws  {
-        try rarFile!.extractFiles(to: destinationPath!, overwrite: true, progress: nil)
+        let rarFile = try openRarFile()
+        try rarFile.extractFiles(to: destinationPath!, overwrite: true, progress: nil)
+    }
+
+    fileprivate func extractFile(with fileInfo: RarFileInfo) throws -> Data {
+        let rarFile = try openRarFile()
+        var fileData: Data?
+        try rarFile.extractBufferedData(fromFile: fileInfo.fileName, action: { (data, value) -> Void in
+            fileData = data
+        })
+        guard let data = fileData else {
+            throw UnpackError()
+        }
+        return data
+    }
+}
+
+public struct RarFileInfo: FileInfo {
+
+    public let fileName: String
+    public let fileCRC: Int
+    public let index: UInt
+
+    public let archiveName: String
+    public let timestamp: Date
+    public let uncompressedSize: Int64
+    public let compressedSize: Int64
+    public let isEncryptedWithPassword: Bool
+    public let isDirectory: Bool
+    public let compressionMethod: RarCompressionMethod
+    public let hostOS: RarHostOS
+
+    public enum RarCompressionMethod {
+
+        case storage
+        case fastest
+        case fast
+        case normal
+        case good
+        case best
+    }
+
+    public enum RarHostOS {
+
+        case MSDOS
+        case OS2
+        case windows
+        case unix
+        case macOS
+        case beOS
     }
 }
