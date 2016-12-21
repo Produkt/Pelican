@@ -22,3 +22,14 @@ extension String {
         return (self as NSString).appendingPathComponent(str)
     }
 }
+
+extension Data {
+    
+    static func contentsOfFile(path: String) -> Data? {
+        do {
+            return try NSData(contentsOfFile: path) as Data
+        } catch {
+            return nil
+        }
+    }
+}

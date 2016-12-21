@@ -8,20 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		61CF39A84A71B1CE7E612DA9 /* Pods_PelicanSampleProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8B558D9F7DAB28EFA55058D /* Pods_PelicanSampleProject.framework */; };
+		88DC81E51E0B1DF7005EA4A6 /* Fixtures in Resources */ = {isa = PBXBuildFile; fileRef = 88DC81E41E0B1DF7005EA4A6 /* Fixtures */; };
 		95982EF81DF91381001771BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95982EF71DF91381001771BA /* AppDelegate.swift */; };
 		95982EFA1DF91381001771BA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95982EF91DF91381001771BA /* ViewController.swift */; };
 		95982EFD1DF91381001771BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95982EFB1DF91381001771BA /* Main.storyboard */; };
 		95982EFF1DF91381001771BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95982EFE1DF91381001771BA /* Assets.xcassets */; };
 		95982F021DF91381001771BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95982F001DF91381001771BA /* LaunchScreen.storyboard */; };
 		95982F0D1DF91381001771BA /* ZipTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95982F0C1DF91381001771BA /* ZipTests.swift */; };
-		95982F1A1DF91394001771BA /* File1.txt in Resources */ = {isa = PBXBuildFile; fileRef = 95982F181DF91394001771BA /* File1.txt */; };
-		95982F1B1DF91394001771BA /* File2.txt in Resources */ = {isa = PBXBuildFile; fileRef = 95982F191DF91394001771BA /* File2.txt */; };
 		95982F1D1DF923E1001771BA /* TestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95982F1C1DF923E1001771BA /* TestExtensions.swift */; };
 		95982F231DF9A202001771BA /* PelicanTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95982F221DF9A202001771BA /* PelicanTests.swift */; };
-		95982F251DF9A3F4001771BA /* Pelican.zip in Resources */ = {isa = PBXBuildFile; fileRef = 95982F241DF9A3F4001771BA /* Pelican.zip */; };
-		95E8757E1DFC34E000E976FF /* Pelecanus_conspicillatus_-Australia_-8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 95E8757D1DFC34E000E976FF /* Pelecanus_conspicillatus_-Australia_-8.jpg */; };
 		95E875861DFC82A300E976FF /* RarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E875851DFC82A300E976FF /* RarTests.swift */; };
-		95E875881DFC83A600E976FF /* Pelican.rar in Resources */ = {isa = PBXBuildFile; fileRef = 95E875871DFC83A600E976FF /* Pelican.rar */; };
 		EB1F67E0F90B67EC2E1870ED /* Pods_PelicanSampleProjectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 757419E12E9A44562C1A06DA /* Pods_PelicanSampleProjectTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +35,7 @@
 		4113F3B8C19821A2D5876040 /* Pods-PelicanSampleProjectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PelicanSampleProjectTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PelicanSampleProjectTests/Pods-PelicanSampleProjectTests.release.xcconfig"; sourceTree = "<group>"; };
 		537957208AE9298F89F184CE /* Pods-PelicanSampleProjectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PelicanSampleProjectTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PelicanSampleProjectTests/Pods-PelicanSampleProjectTests.debug.xcconfig"; sourceTree = "<group>"; };
 		757419E12E9A44562C1A06DA /* Pods_PelicanSampleProjectTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PelicanSampleProjectTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		88DC81E41E0B1DF7005EA4A6 /* Fixtures */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Fixtures; sourceTree = "<group>"; };
 		95982EF41DF91381001771BA /* PelicanSampleProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PelicanSampleProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95982EF71DF91381001771BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		95982EF91DF91381001771BA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -49,15 +46,10 @@
 		95982F081DF91381001771BA /* PelicanSampleProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PelicanSampleProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		95982F0C1DF91381001771BA /* ZipTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZipTests.swift; sourceTree = "<group>"; };
 		95982F0E1DF91381001771BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		95982F181DF91394001771BA /* File1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = File1.txt; sourceTree = "<group>"; };
-		95982F191DF91394001771BA /* File2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = File2.txt; sourceTree = "<group>"; };
 		95982F1C1DF923E1001771BA /* TestExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestExtensions.swift; sourceTree = "<group>"; };
 		95982F1E1DF92507001771BA /* PelicanSampleProjectTestsBridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PelicanSampleProjectTestsBridgingHeader.h; sourceTree = "<group>"; };
 		95982F221DF9A202001771BA /* PelicanTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PelicanTests.swift; sourceTree = "<group>"; };
-		95982F241DF9A3F4001771BA /* Pelican.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = Pelican.zip; sourceTree = "<group>"; };
-		95E8757D1DFC34E000E976FF /* Pelecanus_conspicillatus_-Australia_-8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Pelecanus_conspicillatus_-Australia_-8.jpg"; sourceTree = "<group>"; };
 		95E875851DFC82A300E976FF /* RarTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RarTests.swift; sourceTree = "<group>"; };
-		95E875871DFC83A600E976FF /* Pelican.rar */ = {isa = PBXFileReference; lastKnownFileType = file; path = Pelican.rar; sourceTree = "<group>"; };
 		A1498620C7E60BE6E3E1C321 /* Pods-PelicanSampleProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PelicanSampleProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PelicanSampleProject/Pods-PelicanSampleProject.debug.xcconfig"; sourceTree = "<group>"; };
 		E8B558D9F7DAB28EFA55058D /* Pods_PelicanSampleProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PelicanSampleProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E963D49C6BA05C8C41F38583 /* Pods-PelicanSampleProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PelicanSampleProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-PelicanSampleProject/Pods-PelicanSampleProject.release.xcconfig"; sourceTree = "<group>"; };
@@ -119,24 +111,12 @@
 		95982F0B1DF91381001771BA /* PelicanSampleProjectTests */ = {
 			isa = PBXGroup;
 			children = (
-				95982F171DF91394001771BA /* Fixtures */,
+				88DC81E41E0B1DF7005EA4A6 /* Fixtures */,
 				95982F1F1DF988EF001771BA /* Supporting Files */,
 				95982F0C1DF91381001771BA /* ZipTests.swift */,
 				95E875851DFC82A300E976FF /* RarTests.swift */,
 			);
 			path = PelicanSampleProjectTests;
-			sourceTree = "<group>";
-		};
-		95982F171DF91394001771BA /* Fixtures */ = {
-			isa = PBXGroup;
-			children = (
-				95982F181DF91394001771BA /* File1.txt */,
-				95982F191DF91394001771BA /* File2.txt */,
-				95E8757D1DFC34E000E976FF /* Pelecanus_conspicillatus_-Australia_-8.jpg */,
-				95982F241DF9A3F4001771BA /* Pelican.zip */,
-				95E875871DFC83A600E976FF /* Pelican.rar */,
-			);
-			path = Fixtures;
 			sourceTree = "<group>";
 		};
 		95982F1F1DF988EF001771BA /* Supporting Files */ = {
@@ -269,11 +249,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				95982F1A1DF91394001771BA /* File1.txt in Resources */,
-				95982F1B1DF91394001771BA /* File2.txt in Resources */,
-				95982F251DF9A3F4001771BA /* Pelican.zip in Resources */,
-				95E8757E1DFC34E000E976FF /* Pelecanus_conspicillatus_-Australia_-8.jpg in Resources */,
-				95E875881DFC83A600E976FF /* Pelican.rar in Resources */,
+				88DC81E51E0B1DF7005EA4A6 /* Fixtures in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

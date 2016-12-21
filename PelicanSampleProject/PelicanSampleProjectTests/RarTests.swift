@@ -188,6 +188,67 @@ class RarTests: PelicanTests {
         XCTAssertNotNil(fileData)
         XCTAssertEqual(fileData, expectedFileData)
     }
+    
+    func testCanExtractAllPagesOfACBRComic() {
+        // Given
+        let comicFileName = "Comic.cbr"
+        guard let filePath = pathForFixture(comicFileName) else {
+            NSLog("\(#function) not run because \(comicFileName) was not found")
+            return
+        }
+        let rarUnpacker = Pelican.rarUnpacker()
+        let unpackPath = unrarCachesPath()
+        
+        // When
+        let contentInfo = rarUnpacker.contentInfo(in: filePath).value!
+        let unrarResult = rarUnpacker.unpack(fileAt: filePath, in: unpackPath)
+        guard case let .success(unrarSummary) = unrarResult else {
+            XCTAssert(false, "Unrar whole file should succeed")
+            return
+        }
+        
+        // Then
+        let unrarpedFilesInfo = unrarSummary.unpackedFiles
+        XCTAssertEqual(unrarpedFilesInfo.count, contentInfo.count)
+        
+        let fileManager = FileManager.default
+        XCTAssert(fileManager.fileExists(atPath: unpackPath))
+        let contents = contentsOfFolder(at: unpackPath)!
+        XCTAssertEqual(contents.count, contentInfo.count)
+        for fileInfo in contentInfo {
+            XCTAssert(contents.contains(fileInfo.fileName), "\(fileInfo.fileName) was not extracted")
+            guard let fileData = Data.contentsOfFile(path: unpackPath.appendingPathComponent(fileInfo.fileName)) else {
+                XCTFail("\(fileInfo.fileName) could not be extracted")
+                return
+            }
+            XCTAssertGreaterThan(fileData.count, 0)
+            XCTAssertNotNil(UIImage(data: fileData), "Can't create an image from \(fileInfo.fileName)")
+        }
+    }
+    
+    func testCanExtractAllPagesFileByFileOfACBRComic() {
+        // Given
+        let comicFileName = "Comic.cbr"
+        guard let filePath = pathForFixture(comicFileName) else {
+            NSLog("\(#function) not run because \(comicFileName) was not found")
+            return
+        }
+        let rarUnpacker = Pelican.rarUnpacker()
+        
+        // When
+        let contentInfo = rarUnpacker.contentInfo(in: filePath).value!
+        for fileInfo in contentInfo {
+            let unpackFileResult = rarUnpacker.unpack(fileWith: fileInfo, from: filePath)
+            
+            // Then
+            guard let fileData = unpackFileResult.value else {
+                XCTFail("\(fileInfo.fileName) could not be extracted")
+                return
+            }
+            XCTAssertGreaterThan(fileData.count, 0)
+            XCTAssertNotNil(UIImage(data: fileData), "Can't create an image from \(fileInfo.fileName)")
+        }
+    }
 
     private func rarCachesPath() -> String {
         return cachesPath(at: "rared")

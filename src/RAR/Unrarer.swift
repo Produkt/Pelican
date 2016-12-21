@@ -106,14 +106,15 @@ class Unrarer {
 
     fileprivate func extractFile(with fileInfo: RarFileInfo) throws -> Data {
         let rarFile = try openRarFile()
-        var fileData: Data?
-        try rarFile.extractBufferedData(fromFile: fileInfo.fileName, action: { (data, value) -> Void in
-            fileData = data
-        })
-        guard let data = fileData else {
-            throw UnpackError()
-        }
-        return data
+        var fileData = Data()
+        var extractionProgress: CGFloat = 0
+        repeat {
+            try rarFile.extractBufferedData(fromFile: fileInfo.fileName, action: { (dataChunk, progress) -> Void in
+                fileData.append(dataChunk)
+                extractionProgress = progress
+            })
+        } while extractionProgress < 1
+        return fileData
     }
 }
 

@@ -10,6 +10,8 @@ import XCTest
 
 class PelicanTests: XCTestCase {
     
+    let fixturesFolderName = "Fixtures"
+    
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -30,7 +32,7 @@ class PelicanTests: XCTestCase {
     }
 
     func pathForFixture(_ named: String) -> String? {
-        return Bundle(for: type(of: self)).path(forResource: named.deletingPathExtension, ofType: named.pathExtension)
+        return Bundle(for: type(of: self)).path(forResource: named.deletingPathExtension, ofType: named.pathExtension, inDirectory: fixturesFolderName)
     }
 
     func contentsOfFolder(at path: String) -> [String]? {
