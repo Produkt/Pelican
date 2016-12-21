@@ -2,7 +2,7 @@ CONFIGURATION_BUILD_DIR = $PODS_CONFIGURATION_BUILD_DIR/Pelican
 FRAMEWORK_SEARCH_PATHS = $(inherited) "$PODS_CONFIGURATION_BUILD_DIR/Result"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
 HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Private" "${PODS_ROOT}/Headers/Public"
-LIBRARY_SEARCH_PATHS = $(inherited) /Users/danielgarcia/Development/iOS/Pelican/src/ $(SRCROOT)/Pelican/src/
+LIBRARY_SEARCH_PATHS = $(inherited) /Users/fillito/Development/iOS/Pelican/src/ $(SRCROOT)/Pelican/src/
 OTHER_CFLAGS = $(inherited) -Wno-return-type -Wno-logical-op-parentheses -Wno-conversion -Wno-parentheses -Wno-unused-function -Wno-unused-variable -Wno-switch -Wno-unused-command-line-argument
 OTHER_CPLUSPLUSFLAGS = $(inherited) -DSILENT -DRARDLL $(OTHER_CFLAGS)
 OTHER_LDFLAGS = $(inherited) -l"c++" -l"z"
@@ -12,4 +12,4 @@ PODS_CONFIGURATION_BUILD_DIR = $PODS_BUILD_DIR/$(CONFIGURATION)$(EFFECTIVE_PLATF
 PODS_ROOT = ${SRCROOT}
 PRODUCT_BUNDLE_IDENTIFIER = org.cocoapods.${PRODUCT_NAME:rfc1034identifier}
 SKIP_INSTALL = YES
-SWIFT_INCLUDE_PATHS = /Users/danielgarcia/Development/iOS/Pelican/src/vendors/minizip/** $(SRCROOT)/Pelican/src/vendors/minizip/** /Users/danielgarcia/Development/iOS/Pelican/src/vendors/UnrarKit/** $(SRCROOT)/Pelican/src/vendors/UnrarKit/**
+SWIFT_INCLUDE_PATHS = /Users/fillito/Development/iOS/Pelican/src/vendors/minizip/** $(SRCROOT)/Pelican/src/vendors/minizip/** /Users/fillito/Development/iOS/Pelican/src/vendors/UnrarKit/** $(SRCROOT)/Pelican/src/vendors/UnrarKit/**
