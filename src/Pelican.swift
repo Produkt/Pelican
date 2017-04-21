@@ -104,6 +104,6 @@ public protocol UnpackTask {
 
 public protocol FileInfo {
     var fileName: String { get }
-    var fileCRC: Int { get }
+    var fileCRC: UInt { get }
     var index: UInt { get }
 }

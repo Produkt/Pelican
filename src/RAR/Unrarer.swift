@@ -121,7 +121,7 @@ class Unrarer {
 public struct RarFileInfo: FileInfo {
 
     public let fileName: String
-    public let fileCRC: Int
+    public let fileCRC: UInt
     public let index: UInt
 
     public let archiveName: String

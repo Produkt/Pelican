@@ -14,7 +14,7 @@ extension RarFileInfo {
         fileName = urkFileInfo.filename
         archiveName = urkFileInfo.archiveName
         timestamp = urkFileInfo.timestamp
-        fileCRC = urkFileInfo.crc
+        fileCRC = UInt(urkFileInfo.crc)
         uncompressedSize = urkFileInfo.uncompressedSize
         compressedSize = urkFileInfo.compressedSize
         isEncryptedWithPassword = urkFileInfo.isEncryptedWithPassword

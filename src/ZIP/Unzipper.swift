@@ -12,7 +12,7 @@ import Result
 public struct ZipFileInfo: FileInfo {
 
     public let fileName: String
-    public let fileCRC: Int
+    public let fileCRC: UInt
     public let timestamp: Date
     public let compressedSize: UInt
     public let uncompressedSize: UInt
