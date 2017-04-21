@@ -44,7 +44,7 @@ class AllContentUnrarer: Unrarer {
             let finishDate = Date()
             let summary = UnpackContentSummary(startDate: startDate, finishDate: finishDate, unpackedFiles: rarFilesInfo)
             return .success(summary)
-        } catch (let error) {
+        } catch {
             return .failure(UnpackError())
         }
     }
@@ -86,6 +86,7 @@ class Unrarer {
         self.destinationPath = destinationPath        
     }
 
+    @discardableResult
     fileprivate func openRarFile() throws -> URKArchive {
         return try URKArchive(path: sourcePath)
     }

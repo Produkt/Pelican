@@ -51,7 +51,7 @@ class AllContentUnzipper: Unzipper {
             repeat {
                 let unzipResult = unzipCurrentFile(in: destinationPath)
                 switch unzipResult {
-                case .success(let filePath, let fileInfo):
+                case .success( _, let fileInfo):
                     unzippedFilesInfo.append(fileInfo)
                 case .failure(let error):
                     throw error
@@ -102,7 +102,7 @@ class SingleFileUnzipper: Unzipper {
         defer {
             delete(temporaryContainer: container)
         }
-        let unzipResult = try unzipCurrentFile(in: container)
+        let unzipResult = unzipCurrentFile(in: container)
         switch unzipResult {
         case .success(let filePath, _):
             guard let fileData = Data.data(contentsOfFile: filePath) else {
@@ -207,7 +207,7 @@ class Unzipper {
     fileprivate var index: UInt = 0
 
     private init() {
-        // This init is never used. 
+        // This init is never used.
         // Is here just to avoid direct instantiation and get a similar effect of an abtract class
         self.sourcePath = ""
         self.destinationPath = ""
@@ -273,15 +273,11 @@ class Unzipper {
         var globalInfo: unz_global_info = unz_global_info()
         unzGetGlobalInfo(zip, &globalInfo)
 
-        var fileAttributes:[FileAttributeKey : Any]! = nil
         do {
-            fileAttributes = try fileManager.attributesOfItem(atPath: sourcePath)
+            _ = try fileManager.attributesOfItem(atPath: sourcePath)
         } catch { throw UnzipError.UnableToReadZipFileAttributes }
 
-        let fileSize: UInt64 = (fileAttributes[FileAttributeKey.size] as! NSNumber).uint64Value
-        let currentPosition: UInt64 = 0
-
-        var openFirstFileResult = unzGoToFirstFile(zip)
+        let openFirstFileResult = unzGoToFirstFile(zip)
         guard openFirstFileResult == UNZ_OK else { throw UnzipError.UnableToOpenZipFile }
     }
 
@@ -333,7 +329,7 @@ class Unzipper {
         let fileInfoName = fileName(from: &unzFileInfo)
         let fileInfoDate = Date.date(MSDOSFormat: UInt32(unzFileInfo.dosDate))
         let zipFileInfo = ZipFileInfo(fileName: fileInfoName,
-                                      fileCRC: Int(unzFileInfo.crc),
+                                      fileCRC: unzFileInfo.crc,
                                       timestamp: fileInfoDate,
                                       compressedSize: unzFileInfo.compressed_size,
                                       uncompressedSize: unzFileInfo.uncompressed_size,
@@ -357,7 +353,7 @@ class Unzipper {
             }
         }
     }
-    
+
     fileprivate func closeZipFile() {
         unzClose(zip)
     }

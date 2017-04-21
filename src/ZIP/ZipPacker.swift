@@ -51,26 +51,17 @@ class ZipPackOperation: Operation, PackTask {
     }
 
     func addFile(from path: String) {
-        var input = fopen((path as NSString).utf8String, "r")
+        let input = fopen((path as NSString).utf8String, "r")
         guard input != nil else { return }
 
         let fileName = ((path as NSString).lastPathComponent as NSString).utf8String
-
-        var attributes: NSDictionary? = nil
-        do {
-            attributes = try FileManager.default.attributesOfItem(atPath: path) as? NSDictionary
-        } catch {}
-        if let attributes = attributes {
-            let fileDate = attributes.fileModificationDate()
-
-        }
         var zipInfo: zip_fileinfo = zip_fileinfo(tmz_date: tm_zip(tm_sec: 0, tm_min: 0, tm_hour: 0, tm_mday: 0, tm_mon: 0, tm_year: 0),
                                                  dosDate: 0,
                                                  internal_fa: 0,
                                                  external_fa: 0)
         do {
-            let fileAttributes = try FileManager.default.attributesOfItem(atPath: path)
-            if let fileDate = fileAttributes[FileAttributeKey.modificationDate] as? Date {
+            let fileAttributes = try FileManager.default.attributesOfItem(atPath: path) as NSDictionary
+            if let fileDate = fileAttributes.fileModificationDate() {
                 let components = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: fileDate)
                 zipInfo.tmz_date.tm_sec = UInt32(components.second!)
                 zipInfo.tmz_date.tm_min = UInt32(components.minute!)
