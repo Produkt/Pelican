@@ -23,7 +23,7 @@ Pod::Spec.new do |s|
   s.homepage         = "https://github.com/Produkt/Pelican"
   s.license          = { :type => 'GPL', :file => 'LICENSE' }
   s.author           = { 'Daniel Garcia' => 'fillito@gmail.com' }
-  s.source           = { :git => 'https://github.com/Produkt/Pelican.git', :tag => "v#{s.version}" }
+  s.source           = { :git => 'https://github.com/Produkt/Pelican.git', :tag => "#{s.version}" }
 
   s.ios.deployment_target = '8.0'
   s.tvos.deployment_target = '9.0'
