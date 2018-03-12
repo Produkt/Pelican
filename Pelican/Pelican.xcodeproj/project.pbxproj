@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC3B03B320573B6A00A15C3E /* UnrarKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCF01A10205731C300AF7B6C /* UnrarKit.framework */; };
 		BCF0191C20571F3700AF7B6C /* Unrarer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF0185720571F3600AF7B6C /* Unrarer.swift */; };
 		BCF0191D20571F3700AF7B6C /* RarFileInfoExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF0185820571F3600AF7B6C /* RarFileInfoExtensions.swift */; };
 		BCF0191E20571F3700AF7B6C /* RarUnpacker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF0185920571F3600AF7B6C /* RarUnpacker.swift */; };
@@ -141,6 +142,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC3B03B320573B6A00A15C3E /* UnrarKit.framework in Frameworks */,
 				BCF01A1F2057380D00AF7B6C /* Pelican_Mac.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -813,6 +815,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6MJV727X64;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pelican/vendors/UnrarKit/Mac",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = PelicanTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
@@ -840,6 +846,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6MJV727X64;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pelican/vendors/UnrarKit/Mac",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = PelicanTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
