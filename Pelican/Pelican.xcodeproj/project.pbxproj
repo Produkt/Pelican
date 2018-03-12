@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BCF0184420571DBD00AF7B6C /* Pelican_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCF0183B20571DBD00AF7B6C /* Pelican_iOS.framework */; };
-		BCF0185420571E1600AF7B6C /* TestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF0185320571E1500AF7B6C /* TestExtensions.swift */; };
 		BCF0191C20571F3700AF7B6C /* Unrarer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF0185720571F3600AF7B6C /* Unrarer.swift */; };
 		BCF0191D20571F3700AF7B6C /* RarFileInfoExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF0185820571F3600AF7B6C /* RarFileInfoExtensions.swift */; };
 		BCF0191E20571F3700AF7B6C /* RarUnpacker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF0185920571F3600AF7B6C /* RarUnpacker.swift */; };
@@ -21,7 +19,6 @@
 		BCF0192520571F3700AF7B6C /* Result.h in Headers */ = {isa = PBXBuildFile; fileRef = BCF0186320571F3700AF7B6C /* Result.h */; };
 		BCF0192620571F3700AF7B6C /* AnyError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF0186420571F3700AF7B6C /* AnyError.swift */; };
 		BCF0192720571F3700AF7B6C /* NoError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF0186520571F3700AF7B6C /* NoError.swift */; };
-		BCF0192820571F3700AF7B6C /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BCF0186620571F3700AF7B6C /* Info.plist */; };
 		BCF0192920571F3700AF7B6C /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = BCF0186820571F3700AF7B6C /* unzip.c */; };
 		BCF0192A20571F3700AF7B6C /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = BCF0186920571F3700AF7B6C /* zip.c */; };
 		BCF0192B20571F3700AF7B6C /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = BCF0186A20571F3700AF7B6C /* ioapi.c */; };
@@ -32,16 +29,44 @@
 		BCF019D320571F3700AF7B6C /* Unzipper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF0191820571F3700AF7B6C /* Unzipper.swift */; };
 		BCF019D420571F3700AF7B6C /* ZipUnpacker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF0191920571F3700AF7B6C /* ZipUnpacker.swift */; };
 		BCF019D520571F3700AF7B6C /* ZipPacker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF0191A20571F3700AF7B6C /* ZipPacker.swift */; };
-		BCF019DA20572E7B00AF7B6C /* UnrarKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCF019D920572E7B00AF7B6C /* UnrarKit.framework */; };
+		BCF019FB2057308E00AF7B6C /* Pelican.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF0185E20571F3700AF7B6C /* Pelican.swift */; };
+		BCF019FC2057309300AF7B6C /* Unzipper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF0191820571F3700AF7B6C /* Unzipper.swift */; };
+		BCF019FD2057309300AF7B6C /* ZipUnpacker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF0191920571F3700AF7B6C /* ZipUnpacker.swift */; };
+		BCF019FE2057309300AF7B6C /* ZipPacker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF0191A20571F3700AF7B6C /* ZipPacker.swift */; };
+		BCF019FF2057309700AF7B6C /* Unrarer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF0185720571F3600AF7B6C /* Unrarer.swift */; };
+		BCF01A002057309700AF7B6C /* RarFileInfoExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF0185820571F3600AF7B6C /* RarFileInfoExtensions.swift */; };
+		BCF01A012057309700AF7B6C /* RarUnpacker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF0185920571F3600AF7B6C /* RarUnpacker.swift */; };
+		BCF01A022057309B00AF7B6C /* DataExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF0185B20571F3600AF7B6C /* DataExtensions.swift */; };
+		BCF01A032057309B00AF7B6C /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF0185C20571F3600AF7B6C /* StringExtensions.swift */; };
+		BCF01A042057309B00AF7B6C /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF0185D20571F3600AF7B6C /* DateExtensions.swift */; };
+		BCF01A05205730A600AF7B6C /* ResultProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF0186120571F3700AF7B6C /* ResultProtocol.swift */; };
+		BCF01A06205730A600AF7B6C /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF0186220571F3700AF7B6C /* Result.swift */; };
+		BCF01A07205730A600AF7B6C /* AnyError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF0186420571F3700AF7B6C /* AnyError.swift */; };
+		BCF01A08205730A600AF7B6C /* NoError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF0186520571F3700AF7B6C /* NoError.swift */; };
+		BCF01A09205730BE00AF7B6C /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = BCF0186820571F3700AF7B6C /* unzip.c */; };
+		BCF01A0A205730BE00AF7B6C /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = BCF0186920571F3700AF7B6C /* zip.c */; };
+		BCF01A0B205730BE00AF7B6C /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = BCF0186A20571F3700AF7B6C /* ioapi.c */; };
+		BCF01A0C205730BE00AF7B6C /* crypt.h in Headers */ = {isa = PBXBuildFile; fileRef = BCF0186B20571F3700AF7B6C /* crypt.h */; };
+		BCF01A0D205730BE00AF7B6C /* zip.h in Headers */ = {isa = PBXBuildFile; fileRef = BCF0186C20571F3700AF7B6C /* zip.h */; };
+		BCF01A0E205730BE00AF7B6C /* unzip.h in Headers */ = {isa = PBXBuildFile; fileRef = BCF0186D20571F3700AF7B6C /* unzip.h */; };
+		BCF01A0F205730BE00AF7B6C /* ioapi.h in Headers */ = {isa = PBXBuildFile; fileRef = BCF0186F20571F3700AF7B6C /* ioapi.h */; };
+		BCF01A1F2057380D00AF7B6C /* Pelican_Mac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCF019E42057305D00AF7B6C /* Pelican_Mac.framework */; };
+		BCF01A252057384B00AF7B6C /* ZipTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95982F0C1DF91381001771BA /* ZipTests.swift */; };
+		BCF01A262057384B00AF7B6C /* RarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E875851DFC82A300E976FF /* RarTests.swift */; };
+		BCF01A272057385300AF7B6C /* TestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF0185320571E1500AF7B6C /* TestExtensions.swift */; };
+		BCF01A282057385300AF7B6C /* PelicanTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF0184820571DBD00AF7B6C /* PelicanTests.swift */; };
+		BCF01A292057385900AF7B6C /* FileHash.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF016FD20571BAC00AF7B6C /* FileHash.m */; };
+		BCF01A2E2057395400AF7B6C /* UnrarKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCF019D920572E7B00AF7B6C /* UnrarKit.framework */; };
+		BCF01A30205739D600AF7B6C /* UnrarKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCF01A10205731C300AF7B6C /* UnrarKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		BCF0184520571DBD00AF7B6C /* PBXContainerItemProxy */ = {
+		BCF01A202057380D00AF7B6C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 95982EEC1DF91381001771BA /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = BCF0183A20571DBD00AF7B6C;
-			remoteInfo = Pelican;
+			remoteGlobalIDString = BCF019E32057305D00AF7B6C;
+			remoteInfo = Pelican_Mac;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -57,8 +82,7 @@
 		BCF016FC20571BAC00AF7B6C /* FileHash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileHash.h; sourceTree = "<group>"; };
 		BCF016FD20571BAC00AF7B6C /* FileHash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileHash.m; sourceTree = "<group>"; };
 		BCF0183B20571DBD00AF7B6C /* Pelican_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pelican_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BCF0183E20571DBD00AF7B6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BCF0184320571DBD00AF7B6C /* PelicanTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PelicanTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BCF0183E20571DBD00AF7B6C /* Pelican_iOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Pelican_iOS-Info.plist"; sourceTree = "<group>"; };
 		BCF0184820571DBD00AF7B6C /* PelicanTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PelicanTests.swift; sourceTree = "<group>"; };
 		BCF0184A20571DBD00AF7B6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BCF0185320571E1500AF7B6C /* TestExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestExtensions.swift; sourceTree = "<group>"; };
@@ -74,7 +98,6 @@
 		BCF0186320571F3700AF7B6C /* Result.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Result.h; sourceTree = "<group>"; };
 		BCF0186420571F3700AF7B6C /* AnyError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyError.swift; sourceTree = "<group>"; };
 		BCF0186520571F3700AF7B6C /* NoError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoError.swift; sourceTree = "<group>"; };
-		BCF0186620571F3700AF7B6C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BCF0186820571F3700AF7B6C /* unzip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = unzip.c; sourceTree = "<group>"; };
 		BCF0186920571F3700AF7B6C /* zip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = zip.c; sourceTree = "<group>"; };
 		BCF0186A20571F3700AF7B6C /* ioapi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ioapi.c; sourceTree = "<group>"; };
@@ -86,8 +109,13 @@
 		BCF0191820571F3700AF7B6C /* Unzipper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Unzipper.swift; sourceTree = "<group>"; };
 		BCF0191920571F3700AF7B6C /* ZipUnpacker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZipUnpacker.swift; sourceTree = "<group>"; };
 		BCF0191A20571F3700AF7B6C /* ZipPacker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZipPacker.swift; sourceTree = "<group>"; };
-		BCF019D820571F7C00AF7B6C /* PelicanBridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PelicanBridgingHeader.h; sourceTree = "<group>"; };
 		BCF019D920572E7B00AF7B6C /* UnrarKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UnrarKit.framework; path = Pelican/vendors/UnrarKit/iOS/UnrarKit.framework; sourceTree = "<group>"; };
+		BCF019E42057305D00AF7B6C /* Pelican_Mac.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pelican_Mac.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BCF019E72057305D00AF7B6C /* Pelican_Mac-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Pelican_Mac-Info.plist"; sourceTree = "<group>"; };
+		BCF01A10205731C300AF7B6C /* UnrarKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UnrarKit.framework; path = Pelican/vendors/UnrarKit/Mac/UnrarKit.framework; sourceTree = "<group>"; };
+		BCF01A1A2057380D00AF7B6C /* PelicanTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PelicanTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BCF01A2A2057390100AF7B6C /* UnrarKit-Mac.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "UnrarKit-Mac.framework"; path = "Pelican/vendors/UnrarKit/Mac/UnrarKit-Mac.framework"; sourceTree = "<group>"; };
+		BCF01A2C2057392E00AF7B6C /* UnrarKit-iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "UnrarKit-iOS.framework"; path = "Pelican/vendors/UnrarKit/iOS/UnrarKit-iOS.framework"; sourceTree = "<group>"; };
 		E8B558D9F7DAB28EFA55058D /* Pods_PelicanSampleProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PelicanSampleProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E963D49C6BA05C8C41F38583 /* Pods-PelicanSampleProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PelicanSampleProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-PelicanSampleProject/Pods-PelicanSampleProject.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -97,15 +125,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BCF019DA20572E7B00AF7B6C /* UnrarKit.framework in Frameworks */,
+				BCF01A2E2057395400AF7B6C /* UnrarKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BCF0184020571DBD00AF7B6C /* Frameworks */ = {
+		BCF019E02057305D00AF7B6C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BCF0184420571DBD00AF7B6C /* Pelican_iOS.framework in Frameworks */,
+				BCF01A30205739D600AF7B6C /* UnrarKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BCF01A172057380D00AF7B6C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BCF01A1F2057380D00AF7B6C /* Pelican_Mac.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -127,7 +163,8 @@
 			isa = PBXGroup;
 			children = (
 				BCF0183B20571DBD00AF7B6C /* Pelican_iOS.framework */,
-				BCF0184320571DBD00AF7B6C /* PelicanTests.xctest */,
+				BCF019E42057305D00AF7B6C /* Pelican_Mac.framework */,
+				BCF01A1A2057380D00AF7B6C /* PelicanTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -135,7 +172,6 @@
 		BCF016FB20571BAC00AF7B6C /* MD5Filehash */ = {
 			isa = PBXGroup;
 			children = (
-				BCF0184820571DBD00AF7B6C /* PelicanTests.swift */,
 				BCF016FC20571BAC00AF7B6C /* FileHash.h */,
 				BCF016FD20571BAC00AF7B6C /* FileHash.m */,
 			);
@@ -150,8 +186,7 @@
 				BCF0185620571F3600AF7B6C /* RAR */,
 				BCF0185A20571F3600AF7B6C /* Helpers */,
 				BCF0185F20571F3700AF7B6C /* vendors */,
-				BCF019D720571F5F00AF7B6C /* Supporting Files */,
-				BCF0183E20571DBD00AF7B6C /* Info.plist */,
+				BCF01A152057359500AF7B6C /* Supporting Files */,
 			);
 			path = Pelican;
 			sourceTree = "<group>";
@@ -173,6 +208,7 @@
 			children = (
 				BCF016FB20571BAC00AF7B6C /* MD5Filehash */,
 				BCF0185320571E1500AF7B6C /* TestExtensions.swift */,
+				BCF0184820571DBD00AF7B6C /* PelicanTests.swift */,
 				95982F1E1DF92507001771BA /* PelicanTestsBridgingHeader.h */,
 			);
 			path = "Supporting Files";
@@ -215,7 +251,6 @@
 				BCF0186320571F3700AF7B6C /* Result.h */,
 				BCF0186420571F3700AF7B6C /* AnyError.swift */,
 				BCF0186520571F3700AF7B6C /* NoError.swift */,
-				BCF0186620571F3700AF7B6C /* Info.plist */,
 			);
 			path = Result;
 			sourceTree = "<group>";
@@ -245,10 +280,11 @@
 			path = ZIP;
 			sourceTree = "<group>";
 		};
-		BCF019D720571F5F00AF7B6C /* Supporting Files */ = {
+		BCF01A152057359500AF7B6C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				BCF019D820571F7C00AF7B6C /* PelicanBridgingHeader.h */,
+				BCF019E72057305D00AF7B6C /* Pelican_Mac-Info.plist */,
+				BCF0183E20571DBD00AF7B6C /* Pelican_iOS-Info.plist */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -256,7 +292,10 @@
 		C619CFC0932037B3386F6BE1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BCF01A2C2057392E00AF7B6C /* UnrarKit-iOS.framework */,
+				BCF01A2A2057390100AF7B6C /* UnrarKit-Mac.framework */,
 				BCF019D920572E7B00AF7B6C /* UnrarKit.framework */,
+				BCF01A10205731C300AF7B6C /* UnrarKit.framework */,
 				E8B558D9F7DAB28EFA55058D /* Pods_PelicanSampleProject.framework */,
 				757419E12E9A44562C1A06DA /* Pods_PelicanSampleProjectTests.framework */,
 			);
@@ -289,6 +328,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BCF019E12057305D00AF7B6C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BCF01A0D205730BE00AF7B6C /* zip.h in Headers */,
+				BCF01A0C205730BE00AF7B6C /* crypt.h in Headers */,
+				BCF01A0E205730BE00AF7B6C /* unzip.h in Headers */,
+				BCF01A0F205730BE00AF7B6C /* ioapi.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
@@ -310,22 +360,40 @@
 			productReference = BCF0183B20571DBD00AF7B6C /* Pelican_iOS.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		BCF0184220571DBD00AF7B6C /* PelicanTests */ = {
+		BCF019E32057305D00AF7B6C /* Pelican_Mac */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BCF0184F20571DBD00AF7B6C /* Build configuration list for PBXNativeTarget "PelicanTests" */;
+			buildConfigurationList = BCF019F52057305D00AF7B6C /* Build configuration list for PBXNativeTarget "Pelican_Mac" */;
 			buildPhases = (
-				BCF0183F20571DBD00AF7B6C /* Sources */,
-				BCF0184020571DBD00AF7B6C /* Frameworks */,
-				BCF0184120571DBD00AF7B6C /* Resources */,
+				BCF019DF2057305D00AF7B6C /* Sources */,
+				BCF019E02057305D00AF7B6C /* Frameworks */,
+				BCF019E12057305D00AF7B6C /* Headers */,
+				BCF019E22057305D00AF7B6C /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				BCF0184620571DBD00AF7B6C /* PBXTargetDependency */,
+			);
+			name = Pelican_Mac;
+			productName = Pelican_Mac;
+			productReference = BCF019E42057305D00AF7B6C /* Pelican_Mac.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		BCF01A192057380D00AF7B6C /* PelicanTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BCF01A222057380D00AF7B6C /* Build configuration list for PBXNativeTarget "PelicanTests" */;
+			buildPhases = (
+				BCF01A162057380D00AF7B6C /* Sources */,
+				BCF01A172057380D00AF7B6C /* Frameworks */,
+				BCF01A182057380D00AF7B6C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BCF01A212057380D00AF7B6C /* PBXTargetDependency */,
 			);
 			name = PelicanTests;
 			productName = PelicanTests;
-			productReference = BCF0184320571DBD00AF7B6C /* PelicanTests.xctest */;
+			productReference = BCF01A1A2057380D00AF7B6C /* PelicanTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -344,7 +412,12 @@
 						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
-					BCF0184220571DBD00AF7B6C = {
+					BCF019E32057305D00AF7B6C = {
+						CreatedOnToolsVersion = 9.2;
+						DevelopmentTeam = 6MJV727X64;
+						ProvisioningStyle = Automatic;
+					};
+					BCF01A192057380D00AF7B6C = {
 						CreatedOnToolsVersion = 9.2;
 						DevelopmentTeam = 6MJV727X64;
 						ProvisioningStyle = Automatic;
@@ -365,7 +438,8 @@
 			projectRoot = "";
 			targets = (
 				BCF0183A20571DBD00AF7B6C /* Pelican_iOS */,
-				BCF0184220571DBD00AF7B6C /* PelicanTests */,
+				BCF019E32057305D00AF7B6C /* Pelican_Mac */,
+				BCF01A192057380D00AF7B6C /* PelicanTests */,
 			);
 		};
 /* End PBXProject section */
@@ -375,11 +449,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BCF0192820571F3700AF7B6C /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BCF0184120571DBD00AF7B6C /* Resources */ = {
+		BCF019E22057305D00AF7B6C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BCF01A182057380D00AF7B6C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -413,21 +493,49 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BCF0183F20571DBD00AF7B6C /* Sources */ = {
+		BCF019DF2057305D00AF7B6C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BCF0185420571E1600AF7B6C /* TestExtensions.swift in Sources */,
+				BCF019FD2057309300AF7B6C /* ZipUnpacker.swift in Sources */,
+				BCF01A042057309B00AF7B6C /* DateExtensions.swift in Sources */,
+				BCF01A022057309B00AF7B6C /* DataExtensions.swift in Sources */,
+				BCF019FC2057309300AF7B6C /* Unzipper.swift in Sources */,
+				BCF01A032057309B00AF7B6C /* StringExtensions.swift in Sources */,
+				BCF019FF2057309700AF7B6C /* Unrarer.swift in Sources */,
+				BCF01A09205730BE00AF7B6C /* unzip.c in Sources */,
+				BCF01A06205730A600AF7B6C /* Result.swift in Sources */,
+				BCF01A012057309700AF7B6C /* RarUnpacker.swift in Sources */,
+				BCF01A0A205730BE00AF7B6C /* zip.c in Sources */,
+				BCF01A07205730A600AF7B6C /* AnyError.swift in Sources */,
+				BCF019FB2057308E00AF7B6C /* Pelican.swift in Sources */,
+				BCF01A05205730A600AF7B6C /* ResultProtocol.swift in Sources */,
+				BCF01A08205730A600AF7B6C /* NoError.swift in Sources */,
+				BCF019FE2057309300AF7B6C /* ZipPacker.swift in Sources */,
+				BCF01A0B205730BE00AF7B6C /* ioapi.c in Sources */,
+				BCF01A002057309700AF7B6C /* RarFileInfoExtensions.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BCF01A162057380D00AF7B6C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BCF01A292057385900AF7B6C /* FileHash.m in Sources */,
+				BCF01A282057385300AF7B6C /* PelicanTests.swift in Sources */,
+				BCF01A252057384B00AF7B6C /* ZipTests.swift in Sources */,
+				BCF01A272057385300AF7B6C /* TestExtensions.swift in Sources */,
+				BCF01A262057384B00AF7B6C /* RarTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		BCF0184620571DBD00AF7B6C /* PBXTargetDependency */ = {
+		BCF01A212057380D00AF7B6C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = BCF0183A20571DBD00AF7B6C /* Pelican_iOS */;
-			targetProxy = BCF0184520571DBD00AF7B6C /* PBXContainerItemProxy */;
+			target = BCF019E32057305D00AF7B6C /* Pelican_Mac */;
+			targetProxy = BCF01A202057380D00AF7B6C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -553,14 +661,14 @@
 					"$(PROJECT_DIR)/Pelican/vendors/UnrarKit/iOS",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = Pelican/Info.plist;
+				INFOPLIST_FILE = "Pelican/Supporting Files/Pelican_iOS-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = es.produkt.Pelican;
+				PRODUCT_BUNDLE_IDENTIFIER = es.produkt.Pelican_iOS;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "Pelican/Supporting Files/PelicanBridgingHeader.h";
+				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/Pelican/vendors/minizip";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -595,14 +703,14 @@
 					"$(PROJECT_DIR)/Pelican/vendors/UnrarKit/iOS",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = Pelican/Info.plist;
+				INFOPLIST_FILE = "Pelican/Supporting Files/Pelican_iOS-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = es.produkt.Pelican;
+				PRODUCT_BUNDLE_IDENTIFIER = es.produkt.Pelican_iOS;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "Pelican/Supporting Files/PelicanBridgingHeader.h";
+				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/Pelican/vendors/minizip";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -610,10 +718,89 @@
 			};
 			name = Release;
 		};
-		BCF0185020571DBD00AF7B6C /* Debug */ = {
+		BCF019F62057305D00AF7B6C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 6MJV727X64;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pelican/vendors/UnrarKit/Mac",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "Pelican/Supporting Files/Pelican_Mac-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "es.produkt.Pelican-Mac";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/Pelican/vendors/minizip";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		BCF019F72057305D00AF7B6C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 6MJV727X64;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pelican/vendors/UnrarKit/Mac",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "Pelican/Supporting Files/Pelican_Mac-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "es.produkt.Pelican-Mac";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/Pelican/vendors/minizip";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		BCF01A232057380D00AF7B6C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
@@ -638,10 +825,9 @@
 			};
 			name = Debug;
 		};
-		BCF0185120571DBD00AF7B6C /* Release */ = {
+		BCF01A242057380D00AF7B6C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
@@ -687,11 +873,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BCF0184F20571DBD00AF7B6C /* Build configuration list for PBXNativeTarget "PelicanTests" */ = {
+		BCF019F52057305D00AF7B6C /* Build configuration list for PBXNativeTarget "Pelican_Mac" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				BCF0185020571DBD00AF7B6C /* Debug */,
-				BCF0185120571DBD00AF7B6C /* Release */,
+				BCF019F62057305D00AF7B6C /* Debug */,
+				BCF019F72057305D00AF7B6C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BCF01A222057380D00AF7B6C /* Build configuration list for PBXNativeTarget "PelicanTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BCF01A232057380D00AF7B6C /* Debug */,
+				BCF01A242057380D00AF7B6C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -1,13 +1,13 @@
 //
-//  PelicanSampleProjectTests.swift
-//  PelicanSampleProjectTests
+//  ZipTests.swift
+//  Pelican
 //
 //  Created by Daniel Garcia on 08/12/2016.
 //  Copyright © 2016 Produkt Studio. All rights reserved.
 //
 
 import XCTest
-@testable import Pelican
+@testable import Pelican_Mac
 
 class ZipTests: PelicanTests {
 

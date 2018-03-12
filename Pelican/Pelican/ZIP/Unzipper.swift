@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import minizip
 
 public struct ZipFileInfo: FileInfo {
 
