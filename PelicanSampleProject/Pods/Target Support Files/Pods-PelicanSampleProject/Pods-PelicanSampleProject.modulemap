@@ -1,6 +1,0 @@
-framework module Pods_PelicanSampleProject {
-  umbrella header "Pods-PelicanSampleProject-umbrella.h"
-
-  export *
-  module * { export * }
-}

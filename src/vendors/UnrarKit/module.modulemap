@@ -1,4 +1,0 @@
-module unrarkit [system][extern_c] {
-    header "UnrarKit.h"
-    export *
-}

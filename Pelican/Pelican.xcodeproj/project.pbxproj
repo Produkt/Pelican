@@ -1,0 +1,702 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BCF0184420571DBD00AF7B6C /* Pelican_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCF0183B20571DBD00AF7B6C /* Pelican_iOS.framework */; };
+		BCF0185420571E1600AF7B6C /* TestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF0185320571E1500AF7B6C /* TestExtensions.swift */; };
+		BCF0191C20571F3700AF7B6C /* Unrarer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF0185720571F3600AF7B6C /* Unrarer.swift */; };
+		BCF0191D20571F3700AF7B6C /* RarFileInfoExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF0185820571F3600AF7B6C /* RarFileInfoExtensions.swift */; };
+		BCF0191E20571F3700AF7B6C /* RarUnpacker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF0185920571F3600AF7B6C /* RarUnpacker.swift */; };
+		BCF0191F20571F3700AF7B6C /* DataExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF0185B20571F3600AF7B6C /* DataExtensions.swift */; };
+		BCF0192020571F3700AF7B6C /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF0185C20571F3600AF7B6C /* StringExtensions.swift */; };
+		BCF0192120571F3700AF7B6C /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF0185D20571F3600AF7B6C /* DateExtensions.swift */; };
+		BCF0192220571F3700AF7B6C /* Pelican.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF0185E20571F3700AF7B6C /* Pelican.swift */; };
+		BCF0192320571F3700AF7B6C /* ResultProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF0186120571F3700AF7B6C /* ResultProtocol.swift */; };
+		BCF0192420571F3700AF7B6C /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF0186220571F3700AF7B6C /* Result.swift */; };
+		BCF0192520571F3700AF7B6C /* Result.h in Headers */ = {isa = PBXBuildFile; fileRef = BCF0186320571F3700AF7B6C /* Result.h */; };
+		BCF0192620571F3700AF7B6C /* AnyError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF0186420571F3700AF7B6C /* AnyError.swift */; };
+		BCF0192720571F3700AF7B6C /* NoError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF0186520571F3700AF7B6C /* NoError.swift */; };
+		BCF0192820571F3700AF7B6C /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BCF0186620571F3700AF7B6C /* Info.plist */; };
+		BCF0192920571F3700AF7B6C /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = BCF0186820571F3700AF7B6C /* unzip.c */; };
+		BCF0192A20571F3700AF7B6C /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = BCF0186920571F3700AF7B6C /* zip.c */; };
+		BCF0192B20571F3700AF7B6C /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = BCF0186A20571F3700AF7B6C /* ioapi.c */; };
+		BCF0192C20571F3700AF7B6C /* crypt.h in Headers */ = {isa = PBXBuildFile; fileRef = BCF0186B20571F3700AF7B6C /* crypt.h */; };
+		BCF0192D20571F3700AF7B6C /* zip.h in Headers */ = {isa = PBXBuildFile; fileRef = BCF0186C20571F3700AF7B6C /* zip.h */; };
+		BCF0192E20571F3700AF7B6C /* unzip.h in Headers */ = {isa = PBXBuildFile; fileRef = BCF0186D20571F3700AF7B6C /* unzip.h */; };
+		BCF0192F20571F3700AF7B6C /* ioapi.h in Headers */ = {isa = PBXBuildFile; fileRef = BCF0186F20571F3700AF7B6C /* ioapi.h */; };
+		BCF019D320571F3700AF7B6C /* Unzipper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF0191820571F3700AF7B6C /* Unzipper.swift */; };
+		BCF019D420571F3700AF7B6C /* ZipUnpacker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF0191920571F3700AF7B6C /* ZipUnpacker.swift */; };
+		BCF019D520571F3700AF7B6C /* ZipPacker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF0191A20571F3700AF7B6C /* ZipPacker.swift */; };
+		BCF019DA20572E7B00AF7B6C /* UnrarKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCF019D920572E7B00AF7B6C /* UnrarKit.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BCF0184520571DBD00AF7B6C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 95982EEC1DF91381001771BA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BCF0183A20571DBD00AF7B6C;
+			remoteInfo = Pelican;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4113F3B8C19821A2D5876040 /* Pods-PelicanSampleProjectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PelicanSampleProjectTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PelicanSampleProjectTests/Pods-PelicanSampleProjectTests.release.xcconfig"; sourceTree = "<group>"; };
+		537957208AE9298F89F184CE /* Pods-PelicanSampleProjectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PelicanSampleProjectTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PelicanSampleProjectTests/Pods-PelicanSampleProjectTests.debug.xcconfig"; sourceTree = "<group>"; };
+		757419E12E9A44562C1A06DA /* Pods_PelicanSampleProjectTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PelicanSampleProjectTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		88DC81E41E0B1DF7005EA4A6 /* Fixtures */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Fixtures; sourceTree = "<group>"; };
+		95982F0C1DF91381001771BA /* ZipTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZipTests.swift; sourceTree = "<group>"; };
+		95982F1E1DF92507001771BA /* PelicanTestsBridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PelicanTestsBridgingHeader.h; sourceTree = "<group>"; };
+		95E875851DFC82A300E976FF /* RarTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RarTests.swift; sourceTree = "<group>"; };
+		A1498620C7E60BE6E3E1C321 /* Pods-PelicanSampleProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PelicanSampleProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PelicanSampleProject/Pods-PelicanSampleProject.debug.xcconfig"; sourceTree = "<group>"; };
+		BCF016FC20571BAC00AF7B6C /* FileHash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileHash.h; sourceTree = "<group>"; };
+		BCF016FD20571BAC00AF7B6C /* FileHash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileHash.m; sourceTree = "<group>"; };
+		BCF0183B20571DBD00AF7B6C /* Pelican_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pelican_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BCF0183E20571DBD00AF7B6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BCF0184320571DBD00AF7B6C /* PelicanTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PelicanTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BCF0184820571DBD00AF7B6C /* PelicanTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PelicanTests.swift; sourceTree = "<group>"; };
+		BCF0184A20571DBD00AF7B6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BCF0185320571E1500AF7B6C /* TestExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestExtensions.swift; sourceTree = "<group>"; };
+		BCF0185720571F3600AF7B6C /* Unrarer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Unrarer.swift; sourceTree = "<group>"; };
+		BCF0185820571F3600AF7B6C /* RarFileInfoExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RarFileInfoExtensions.swift; sourceTree = "<group>"; };
+		BCF0185920571F3600AF7B6C /* RarUnpacker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RarUnpacker.swift; sourceTree = "<group>"; };
+		BCF0185B20571F3600AF7B6C /* DataExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataExtensions.swift; sourceTree = "<group>"; };
+		BCF0185C20571F3600AF7B6C /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
+		BCF0185D20571F3600AF7B6C /* DateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
+		BCF0185E20571F3700AF7B6C /* Pelican.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pelican.swift; sourceTree = "<group>"; };
+		BCF0186120571F3700AF7B6C /* ResultProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultProtocol.swift; sourceTree = "<group>"; };
+		BCF0186220571F3700AF7B6C /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		BCF0186320571F3700AF7B6C /* Result.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Result.h; sourceTree = "<group>"; };
+		BCF0186420571F3700AF7B6C /* AnyError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyError.swift; sourceTree = "<group>"; };
+		BCF0186520571F3700AF7B6C /* NoError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoError.swift; sourceTree = "<group>"; };
+		BCF0186620571F3700AF7B6C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BCF0186820571F3700AF7B6C /* unzip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = unzip.c; sourceTree = "<group>"; };
+		BCF0186920571F3700AF7B6C /* zip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = zip.c; sourceTree = "<group>"; };
+		BCF0186A20571F3700AF7B6C /* ioapi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ioapi.c; sourceTree = "<group>"; };
+		BCF0186B20571F3700AF7B6C /* crypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crypt.h; sourceTree = "<group>"; };
+		BCF0186C20571F3700AF7B6C /* zip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zip.h; sourceTree = "<group>"; };
+		BCF0186D20571F3700AF7B6C /* unzip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = unzip.h; sourceTree = "<group>"; };
+		BCF0186E20571F3700AF7B6C /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
+		BCF0186F20571F3700AF7B6C /* ioapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ioapi.h; sourceTree = "<group>"; };
+		BCF0191820571F3700AF7B6C /* Unzipper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Unzipper.swift; sourceTree = "<group>"; };
+		BCF0191920571F3700AF7B6C /* ZipUnpacker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZipUnpacker.swift; sourceTree = "<group>"; };
+		BCF0191A20571F3700AF7B6C /* ZipPacker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZipPacker.swift; sourceTree = "<group>"; };
+		BCF019D820571F7C00AF7B6C /* PelicanBridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PelicanBridgingHeader.h; sourceTree = "<group>"; };
+		BCF019D920572E7B00AF7B6C /* UnrarKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UnrarKit.framework; path = Pelican/vendors/UnrarKit/iOS/UnrarKit.framework; sourceTree = "<group>"; };
+		E8B558D9F7DAB28EFA55058D /* Pods_PelicanSampleProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PelicanSampleProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E963D49C6BA05C8C41F38583 /* Pods-PelicanSampleProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PelicanSampleProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-PelicanSampleProject/Pods-PelicanSampleProject.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BCF0183720571DBD00AF7B6C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BCF019DA20572E7B00AF7B6C /* UnrarKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BCF0184020571DBD00AF7B6C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BCF0184420571DBD00AF7B6C /* Pelican_iOS.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		95982EEB1DF91381001771BA = {
+			isa = PBXGroup;
+			children = (
+				BCF0183C20571DBD00AF7B6C /* Pelican */,
+				BCF0184720571DBD00AF7B6C /* PelicanTests */,
+				95982EF51DF91381001771BA /* Products */,
+				F000E949AB600D5CE506603E /* Pods */,
+				C619CFC0932037B3386F6BE1 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		95982EF51DF91381001771BA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BCF0183B20571DBD00AF7B6C /* Pelican_iOS.framework */,
+				BCF0184320571DBD00AF7B6C /* PelicanTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BCF016FB20571BAC00AF7B6C /* MD5Filehash */ = {
+			isa = PBXGroup;
+			children = (
+				BCF0184820571DBD00AF7B6C /* PelicanTests.swift */,
+				BCF016FC20571BAC00AF7B6C /* FileHash.h */,
+				BCF016FD20571BAC00AF7B6C /* FileHash.m */,
+			);
+			path = MD5Filehash;
+			sourceTree = "<group>";
+		};
+		BCF0183C20571DBD00AF7B6C /* Pelican */ = {
+			isa = PBXGroup;
+			children = (
+				BCF0185E20571F3700AF7B6C /* Pelican.swift */,
+				BCF0191720571F3700AF7B6C /* ZIP */,
+				BCF0185620571F3600AF7B6C /* RAR */,
+				BCF0185A20571F3600AF7B6C /* Helpers */,
+				BCF0185F20571F3700AF7B6C /* vendors */,
+				BCF019D720571F5F00AF7B6C /* Supporting Files */,
+				BCF0183E20571DBD00AF7B6C /* Info.plist */,
+			);
+			path = Pelican;
+			sourceTree = "<group>";
+		};
+		BCF0184720571DBD00AF7B6C /* PelicanTests */ = {
+			isa = PBXGroup;
+			children = (
+				BCF0185220571E0900AF7B6C /* Supporting Files */,
+				88DC81E41E0B1DF7005EA4A6 /* Fixtures */,
+				95982F0C1DF91381001771BA /* ZipTests.swift */,
+				95E875851DFC82A300E976FF /* RarTests.swift */,
+				BCF0184A20571DBD00AF7B6C /* Info.plist */,
+			);
+			path = PelicanTests;
+			sourceTree = "<group>";
+		};
+		BCF0185220571E0900AF7B6C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BCF016FB20571BAC00AF7B6C /* MD5Filehash */,
+				BCF0185320571E1500AF7B6C /* TestExtensions.swift */,
+				95982F1E1DF92507001771BA /* PelicanTestsBridgingHeader.h */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BCF0185620571F3600AF7B6C /* RAR */ = {
+			isa = PBXGroup;
+			children = (
+				BCF0185720571F3600AF7B6C /* Unrarer.swift */,
+				BCF0185820571F3600AF7B6C /* RarFileInfoExtensions.swift */,
+				BCF0185920571F3600AF7B6C /* RarUnpacker.swift */,
+			);
+			path = RAR;
+			sourceTree = "<group>";
+		};
+		BCF0185A20571F3600AF7B6C /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				BCF0185B20571F3600AF7B6C /* DataExtensions.swift */,
+				BCF0185C20571F3600AF7B6C /* StringExtensions.swift */,
+				BCF0185D20571F3600AF7B6C /* DateExtensions.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		BCF0185F20571F3700AF7B6C /* vendors */ = {
+			isa = PBXGroup;
+			children = (
+				BCF0186020571F3700AF7B6C /* Result */,
+				BCF0186720571F3700AF7B6C /* minizip */,
+			);
+			path = vendors;
+			sourceTree = "<group>";
+		};
+		BCF0186020571F3700AF7B6C /* Result */ = {
+			isa = PBXGroup;
+			children = (
+				BCF0186120571F3700AF7B6C /* ResultProtocol.swift */,
+				BCF0186220571F3700AF7B6C /* Result.swift */,
+				BCF0186320571F3700AF7B6C /* Result.h */,
+				BCF0186420571F3700AF7B6C /* AnyError.swift */,
+				BCF0186520571F3700AF7B6C /* NoError.swift */,
+				BCF0186620571F3700AF7B6C /* Info.plist */,
+			);
+			path = Result;
+			sourceTree = "<group>";
+		};
+		BCF0186720571F3700AF7B6C /* minizip */ = {
+			isa = PBXGroup;
+			children = (
+				BCF0186820571F3700AF7B6C /* unzip.c */,
+				BCF0186920571F3700AF7B6C /* zip.c */,
+				BCF0186A20571F3700AF7B6C /* ioapi.c */,
+				BCF0186B20571F3700AF7B6C /* crypt.h */,
+				BCF0186C20571F3700AF7B6C /* zip.h */,
+				BCF0186D20571F3700AF7B6C /* unzip.h */,
+				BCF0186E20571F3700AF7B6C /* module.modulemap */,
+				BCF0186F20571F3700AF7B6C /* ioapi.h */,
+			);
+			path = minizip;
+			sourceTree = "<group>";
+		};
+		BCF0191720571F3700AF7B6C /* ZIP */ = {
+			isa = PBXGroup;
+			children = (
+				BCF0191820571F3700AF7B6C /* Unzipper.swift */,
+				BCF0191920571F3700AF7B6C /* ZipUnpacker.swift */,
+				BCF0191A20571F3700AF7B6C /* ZipPacker.swift */,
+			);
+			path = ZIP;
+			sourceTree = "<group>";
+		};
+		BCF019D720571F5F00AF7B6C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BCF019D820571F7C00AF7B6C /* PelicanBridgingHeader.h */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C619CFC0932037B3386F6BE1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BCF019D920572E7B00AF7B6C /* UnrarKit.framework */,
+				E8B558D9F7DAB28EFA55058D /* Pods_PelicanSampleProject.framework */,
+				757419E12E9A44562C1A06DA /* Pods_PelicanSampleProjectTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F000E949AB600D5CE506603E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A1498620C7E60BE6E3E1C321 /* Pods-PelicanSampleProject.debug.xcconfig */,
+				E963D49C6BA05C8C41F38583 /* Pods-PelicanSampleProject.release.xcconfig */,
+				537957208AE9298F89F184CE /* Pods-PelicanSampleProjectTests.debug.xcconfig */,
+				4113F3B8C19821A2D5876040 /* Pods-PelicanSampleProjectTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		BCF0183820571DBD00AF7B6C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BCF0192D20571F3700AF7B6C /* zip.h in Headers */,
+				BCF0192520571F3700AF7B6C /* Result.h in Headers */,
+				BCF0192C20571F3700AF7B6C /* crypt.h in Headers */,
+				BCF0192E20571F3700AF7B6C /* unzip.h in Headers */,
+				BCF0192F20571F3700AF7B6C /* ioapi.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		BCF0183A20571DBD00AF7B6C /* Pelican_iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BCF0184C20571DBD00AF7B6C /* Build configuration list for PBXNativeTarget "Pelican_iOS" */;
+			buildPhases = (
+				BCF0183620571DBD00AF7B6C /* Sources */,
+				BCF0183720571DBD00AF7B6C /* Frameworks */,
+				BCF0183820571DBD00AF7B6C /* Headers */,
+				BCF0183920571DBD00AF7B6C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Pelican_iOS;
+			productName = Pelican;
+			productReference = BCF0183B20571DBD00AF7B6C /* Pelican_iOS.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		BCF0184220571DBD00AF7B6C /* PelicanTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BCF0184F20571DBD00AF7B6C /* Build configuration list for PBXNativeTarget "PelicanTests" */;
+			buildPhases = (
+				BCF0183F20571DBD00AF7B6C /* Sources */,
+				BCF0184020571DBD00AF7B6C /* Frameworks */,
+				BCF0184120571DBD00AF7B6C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BCF0184620571DBD00AF7B6C /* PBXTargetDependency */,
+			);
+			name = PelicanTests;
+			productName = PelicanTests;
+			productReference = BCF0184320571DBD00AF7B6C /* PelicanTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		95982EEC1DF91381001771BA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0810;
+				ORGANIZATIONNAME = "Produkt Studio";
+				TargetAttributes = {
+					BCF0183A20571DBD00AF7B6C = {
+						CreatedOnToolsVersion = 9.2;
+						DevelopmentTeam = 6MJV727X64;
+						LastSwiftMigration = 0920;
+						ProvisioningStyle = Automatic;
+					};
+					BCF0184220571DBD00AF7B6C = {
+						CreatedOnToolsVersion = 9.2;
+						DevelopmentTeam = 6MJV727X64;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 95982EEF1DF91381001771BA /* Build configuration list for PBXProject "Pelican" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 95982EEB1DF91381001771BA;
+			productRefGroup = 95982EF51DF91381001771BA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BCF0183A20571DBD00AF7B6C /* Pelican_iOS */,
+				BCF0184220571DBD00AF7B6C /* PelicanTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BCF0183920571DBD00AF7B6C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BCF0192820571F3700AF7B6C /* Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BCF0184120571DBD00AF7B6C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BCF0183620571DBD00AF7B6C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BCF019D520571F3700AF7B6C /* ZipPacker.swift in Sources */,
+				BCF0192420571F3700AF7B6C /* Result.swift in Sources */,
+				BCF0192320571F3700AF7B6C /* ResultProtocol.swift in Sources */,
+				BCF0192720571F3700AF7B6C /* NoError.swift in Sources */,
+				BCF0191C20571F3700AF7B6C /* Unrarer.swift in Sources */,
+				BCF0191F20571F3700AF7B6C /* DataExtensions.swift in Sources */,
+				BCF0192020571F3700AF7B6C /* StringExtensions.swift in Sources */,
+				BCF0192B20571F3700AF7B6C /* ioapi.c in Sources */,
+				BCF0192920571F3700AF7B6C /* unzip.c in Sources */,
+				BCF0192620571F3700AF7B6C /* AnyError.swift in Sources */,
+				BCF019D320571F3700AF7B6C /* Unzipper.swift in Sources */,
+				BCF0192220571F3700AF7B6C /* Pelican.swift in Sources */,
+				BCF0191D20571F3700AF7B6C /* RarFileInfoExtensions.swift in Sources */,
+				BCF0192A20571F3700AF7B6C /* zip.c in Sources */,
+				BCF0191E20571F3700AF7B6C /* RarUnpacker.swift in Sources */,
+				BCF019D420571F3700AF7B6C /* ZipUnpacker.swift in Sources */,
+				BCF0192120571F3700AF7B6C /* DateExtensions.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BCF0183F20571DBD00AF7B6C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BCF0185420571E1600AF7B6C /* TestExtensions.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BCF0184620571DBD00AF7B6C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BCF0183A20571DBD00AF7B6C /* Pelican_iOS */;
+			targetProxy = BCF0184520571DBD00AF7B6C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		95982F0F1DF91381001771BA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		95982F101DF91381001771BA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BCF0184D20571DBD00AF7B6C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 6MJV727X64;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pelican/vendors/UnrarKit/iOS",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = Pelican/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = es.produkt.Pelican;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Pelican/Supporting Files/PelicanBridgingHeader.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		BCF0184E20571DBD00AF7B6C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 6MJV727X64;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pelican/vendors/UnrarKit/iOS",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = Pelican/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = es.produkt.Pelican;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Pelican/Supporting Files/PelicanBridgingHeader.h";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		BCF0185020571DBD00AF7B6C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6MJV727X64;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = PelicanTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = es.produkt.PelicanTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "PelicanTests/Supporting Files/PelicanTestsBridgingHeader.h";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BCF0185120571DBD00AF7B6C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6MJV727X64;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = PelicanTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = es.produkt.PelicanTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "PelicanTests/Supporting Files/PelicanTestsBridgingHeader.h";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		95982EEF1DF91381001771BA /* Build configuration list for PBXProject "Pelican" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				95982F0F1DF91381001771BA /* Debug */,
+				95982F101DF91381001771BA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BCF0184C20571DBD00AF7B6C /* Build configuration list for PBXNativeTarget "Pelican_iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BCF0184D20571DBD00AF7B6C /* Debug */,
+				BCF0184E20571DBD00AF7B6C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BCF0184F20571DBD00AF7B6C /* Build configuration list for PBXNativeTarget "PelicanTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BCF0185020571DBD00AF7B6C /* Debug */,
+				BCF0185120571DBD00AF7B6C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 95982EEC1DF91381001771BA /* Project object */;
+}
