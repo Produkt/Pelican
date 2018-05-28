@@ -110,10 +110,10 @@ class ZipTests: PelicanTests {
         XCTAssert(FileManager.default.fileExists(atPath: unpackPath))
         let contents = contentsOfFolder(at: unpackPath)!
         XCTAssertEqual(contents.count, 4)
-        XCTAssertEqual(contents[0], "CompressedFile1.txt")
-        XCTAssertEqual(contents[1], "CompressedFile2.txt")
-        XCTAssertEqual(contents[2], "Pelecanus_conspicillatus_-Australia_-8.jpg")
-        XCTAssertEqual(contents[3], "Pelecanus_conspicillatus_-Australia_-8_LICENCE")
+        XCTAssert(contents.contains("CompressedFile1.txt"))
+        XCTAssert(contents.contains("CompressedFile2.txt"))
+        XCTAssert(contents.contains("Pelecanus_conspicillatus_-Australia_-8.jpg"))
+        XCTAssert(contents.contains("Pelecanus_conspicillatus_-Australia_-8_LICENCE"))
     }
 
     func testCanUnzipFile_Async() {
@@ -143,10 +143,10 @@ class ZipTests: PelicanTests {
         XCTAssert(FileManager.default.fileExists(atPath: unpackPath))
         let contents = contentsOfFolder(at: unpackPath)!
         XCTAssertEqual(contents.count, 4)
-        XCTAssertEqual(contents[0], "CompressedFile1.txt")
-        XCTAssertEqual(contents[1], "CompressedFile2.txt")
-        XCTAssertEqual(contents[2], "Pelecanus_conspicillatus_-Australia_-8.jpg")
-        XCTAssertEqual(contents[3], "Pelecanus_conspicillatus_-Australia_-8_LICENCE")
+        XCTAssert(contents.contains("CompressedFile1.txt"))
+        XCTAssert(contents.contains("CompressedFile2.txt"))
+        XCTAssert(contents.contains("Pelecanus_conspicillatus_-Australia_-8.jpg"))
+        XCTAssert(contents.contains("Pelecanus_conspicillatus_-Australia_-8_LICENCE"))
     }
 
     func testCanUnzipASpecificFileUsingAFileInfo_Sync() {
