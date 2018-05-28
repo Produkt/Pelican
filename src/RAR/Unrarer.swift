@@ -126,7 +126,7 @@ public struct RarFileInfo: FileInfo {
     public let index: UInt
 
     public let archiveName: String
-    public let timestamp: Date
+    public let timestamp: Date?
     public let uncompressedSize: Int64
     public let compressedSize: Int64
     public let isEncryptedWithPassword: Bool

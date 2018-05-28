@@ -13,7 +13,10 @@ extension RarFileInfo {
     init(from urkFileInfo: URKFileInfo, fileIndex: UInt) {
         fileName = urkFileInfo.filename
         archiveName = urkFileInfo.archiveName
-        timestamp = urkFileInfo.timestamp
+        timestamp = {
+            guard let timestamp = urkFileInfo.timestamp else { return nil }
+            return timestamp
+        }()
         fileCRC = UInt(urkFileInfo.crc)
         uncompressedSize = urkFileInfo.uncompressedSize
         compressedSize = urkFileInfo.compressedSize
