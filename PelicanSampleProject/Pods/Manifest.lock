@@ -8,15 +8,20 @@ DEPENDENCIES:
   - FileMD5Hash (= 2.0.0)
   - Pelican (from `..`)
 
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - FileMD5Hash
+    - Result
+
 EXTERNAL SOURCES:
   Pelican:
     :path: ".."
 
 SPEC CHECKSUMS:
   FileMD5Hash: 3ed69cc19a21ff4d30ae8833fc104275ad2c7de0
-  Pelican: 4801e57690f3362d49c445fc80918b5846a02787
+  Pelican: 84161e077c10c3a0c0469604b10ff83560c37b03
   Result: 4e3ed5995ed94d0cd6a09be9a431fce3f3624bbf
 
 PODFILE CHECKSUM: d4b0b007b9e8d3f019a54db37a45c029e77cd6b9
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.5.3

@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/Produkt/Pelican.git",
-    "tag": "v0.0.1"
+    "tag": "0.0.1"
   },
   "platforms": {
     "ios": "8.0",
@@ -118,8 +118,8 @@
     "src/vendors/UnrarKit/unrar/win32stm.cpp"
   ],
   "pod_target_xcconfig": {
-    "SWIFT_INCLUDE_PATHS": "/Users/fillito/Development/iOS/Pelican/src/vendors/minizip/** $(SRCROOT)/Pelican/src/vendors/minizip/** /Users/fillito/Development/iOS/Pelican/src/vendors/UnrarKit/** $(SRCROOT)/Pelican/src/vendors/UnrarKit/**",
-    "LIBRARY_SEARCH_PATHS": "/Users/fillito/Development/iOS/Pelican/src/ $(SRCROOT)/Pelican/src/",
+    "SWIFT_INCLUDE_PATHS": "/Users/daniel.garcia/Development/iOS/pelican/src/vendors/minizip/** $(SRCROOT)/Pelican/src/vendors/minizip/** /Users/daniel.garcia/Development/iOS/pelican/src/vendors/UnrarKit/** $(SRCROOT)/Pelican/src/vendors/UnrarKit/**",
+    "LIBRARY_SEARCH_PATHS": "/Users/daniel.garcia/Development/iOS/pelican/src/ $(SRCROOT)/Pelican/src/",
     "OTHER_LDFLAGS": "$(inherited) -lc++",
     "OTHER_CFLAGS": "$(inherited) -Wno-return-type -Wno-logical-op-parentheses -Wno-conversion -Wno-parentheses -Wno-unused-function -Wno-unused-variable -Wno-switch -Wno-unused-command-line-argument",
     "OTHER_CPLUSPLUSFLAGS": "$(inherited) -DSILENT -DRARDLL $(OTHER_CFLAGS)"
