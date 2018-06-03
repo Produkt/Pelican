@@ -1,6 +1,6 @@
 {
   "name": "Pelican",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "summary": "Utility class for compressing/decompressing files on iOS and Mac.",
   "description": "Pelican is a simple utility class for compressing/decompressing files on iOS and Mac.",
   "homepage": "https://github.com/Produkt/Pelican",
@@ -13,8 +13,9 @@
   },
   "source": {
     "git": "https://github.com/Produkt/Pelican.git",
-    "tag": "0.0.1"
+    "tag": "0.0.4"
   },
+  "swift_version": "4.1",
   "platforms": {
     "ios": "8.0",
     "tvos": "9.0",
