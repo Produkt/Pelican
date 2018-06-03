@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "Pelican"
-  s.version          = "0.0.3"
+  s.version          = "0.0.4"
   s.summary          = "Utility class for compressing/decompressing files on iOS and Mac."
 
 # This description is used to generate tags and improve search results.
@@ -25,6 +25,7 @@ Pod::Spec.new do |s|
   s.author           = { 'Daniel Garcia' => 'fillito@gmail.com' }
   s.source           = { :git => 'https://github.com/Produkt/Pelican.git', :tag => "#{s.version}" }
 
+  s.swift_version = '4.1'
   s.ios.deployment_target = '8.0'
   s.tvos.deployment_target = '9.0'
   s.watchos.deployment_target = '2.0'
