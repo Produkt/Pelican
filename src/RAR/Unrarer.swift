@@ -94,9 +94,9 @@ class Unrarer {
     fileprivate func contentInfo() throws -> [RarFileInfo] {
         let rarFile = try openRarFile()
         let filesInfo = try rarFile.listFileInfo()
-        let rarFilesInfo = filesInfo.enumerated().map({ (index, urkFileInfo) -> RarFileInfo in
+        let rarFilesInfo = filesInfo.enumerated().compactMap { (index, urkFileInfo) -> RarFileInfo? in
             return RarFileInfo(from: urkFileInfo, fileIndex: UInt(index))
-        })
+        }
         return rarFilesInfo
     }
 
@@ -125,7 +125,7 @@ public struct RarFileInfo: FileInfo {
     public let fileCRC: UInt
     public let index: UInt
 
-    public let archiveName: String
+    public let archiveName: String?
     public let timestamp: Date?
     public let uncompressedSize: Int64
     public let compressedSize: Int64

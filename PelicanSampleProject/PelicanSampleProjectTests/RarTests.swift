@@ -8,6 +8,7 @@
 
 import XCTest
 import Pelican
+import unrarkit
 
 class RarTests: PelicanTests {
     
@@ -250,6 +251,17 @@ class RarTests: PelicanTests {
         }
     }
 
+    func testCanCreateRARFileInfo_MissingOptionalValues() {
+        // Given
+        let urkFileInfoMock = URKFileInfoMock()
+
+        // When
+        let rarFileInfo = RarFileInfo(from: urkFileInfoMock, fileIndex: 0)
+
+        // Then
+        XCTAssertNil(rarFileInfo)
+    }
+
     private func rarCachesPath() -> String {
         return cachesPath(at: "rared")
     }
@@ -258,3 +270,13 @@ class RarTests: PelicanTests {
         return cachesPath(at: "unrared")
     }
 }
+
+class URKFileInfoMock: URKFileInfo {
+    var archiveNameMock: String?
+    override var archiveName: String! { return archiveNameMock }
+    var filenameMock: String?
+    override var filename: String! { return filenameMock }
+    var timestampMock: Date?
+    override var timestamp: Date! { return timestampMock }
+}
+

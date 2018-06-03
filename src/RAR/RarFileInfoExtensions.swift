@@ -10,9 +10,13 @@ import unrarkit
 
 extension RarFileInfo {
 
-    init(from urkFileInfo: URKFileInfo, fileIndex: UInt) {
-        fileName = urkFileInfo.filename
-        archiveName = urkFileInfo.archiveName
+    public init?(from urkFileInfo: URKFileInfo, fileIndex: UInt) {
+        guard let urkFileName = urkFileInfo.filename  else { return nil }
+        fileName = urkFileName
+        archiveName = {
+            guard let urkFileArchiveName = urkFileInfo.archiveName else { return nil }
+            return urkFileArchiveName
+        }()
         timestamp = {
             guard let timestamp = urkFileInfo.timestamp else { return nil }
             return timestamp
